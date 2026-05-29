@@ -1,0 +1,145 @@
+/* ProfitPulse Daily — styling. Palette: navy #1a2940, cream #f5f0e6, gold #c9a96e. */
+
+:root {
+  --navy: #1a2940;
+  --navy-soft: #2a3548;
+  --cream: #f5f0e6;
+  --gold: #c9a96e;
+  --ink: #1d2530;
+  --muted: #6b7280;
+  --line: #e3ddd0;
+  --warn: #9a3b2e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.55;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  background: var(--navy);
+  color: var(--cream);
+  padding: 14px 18px calc(14px + env(safe-area-inset-top));
+  padding-top: max(14px, env(safe-area-inset-top));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  z-index: 10;
+}
+
+.brand { font-weight: 600; letter-spacing: 0.2px; }
+
+.tabs { display: flex; gap: 6px; }
+
+.tab {
+  background: transparent;
+  border: 1px solid rgba(245, 240, 230, 0.3);
+  color: var(--cream);
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.tab.active { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+
+.view { max-width: 760px; margin: 0 auto; padding: 18px; }
+.hidden { display: none !important; }
+
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.card h2 { margin: 0 0 12px; font-size: 17px; color: var(--navy); }
+
+.row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.row label { font-size: 14px; color: var(--muted); }
+
+.summary { color: var(--muted); font-size: 14px; margin: 10px 0 0; }
+
+.field { margin-bottom: 14px; }
+.field label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 5px; }
+.field-head { display: flex; align-items: center; justify-content: space-between; }
+
+input[type="text"], input[type="date"], textarea {
+  width: 100%;
+  font: inherit;
+  padding: 9px 11px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  resize: vertical;
+}
+input:focus, textarea:focus { outline: 2px solid var(--gold); border-color: var(--gold); }
+
+textarea[readonly] { background: #faf8f3; color: #333; }
+
+.copy, .ghost {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  color: var(--navy);
+  padding: 5px 11px;
+  border-radius: 7px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.social summary { cursor: pointer; font-weight: 600; color: var(--navy); margin-bottom: 10px; }
+
+.dropzone {
+  border: 2px dashed var(--gold);
+  border-radius: 10px;
+  padding: 26px;
+  text-align: center;
+  color: var(--muted);
+  cursor: pointer;
+  background: #fffdf8;
+}
+.dropzone.over { background: #f3ead6; }
+.preview { max-width: 100%; border-radius: 10px; margin-top: 12px; border: 1px solid var(--line); }
+
+.publish-row { display: flex; align-items: center; gap: 14px; margin-top: 6px; flex-wrap: wrap; }
+.publish {
+  background: var(--navy);
+  color: var(--cream);
+  border: none;
+  padding: 12px 26px;
+  border-radius: 9px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.publish:disabled { background: #b9b3a6; cursor: not-allowed; }
+.status { font-size: 14px; color: var(--muted); }
+
+/* analytics */
+.gaps { margin-top: 14px; display: grid; gap: 6px; }
+.gap { display: flex; justify-content: space-between; font-size: 14px;
+  padding: 7px 10px; background: var(--cream); border-radius: 7px; }
+.gap.warn { background: #f6e3df; color: var(--warn); font-weight: 600; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { background: var(--cream); border: 1px solid var(--line); border-radius: 20px;
+  padding: 5px 12px; font-size: 13px; }
+.chip b { color: var(--gold); }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+@media (max-width: 560px) { .two-col { grid-template-columns: 1fr; } }
+
+.list { margin: 0; padding-left: 18px; font-size: 14px; }
+.list li { margin: 3px 0; }
+.list .ok { list-style: none; color: var(--muted); margin-left: -18px; }
+.list .muted { color: var(--muted); }

@@ -1,0 +1,68 @@
+# ---------------------------------------------------------------------------
+# Daily ProfitPulse draft
+#
+# Runs every day at 03:00 Brisbane time and produces that day's content pack,
+# then rebuilds the analytics the app charts. Brisbane is GMT+10 all year
+# (Queensland has no daylight saving), so 03:00 Brisbane is always 17:00 UTC
+# the day before. GitHub schedules run in UTC, hence "0 17 * * *".
+#
+# You can also run it by hand any time from the repo's Actions tab
+# (the "Run workflow" button) thanks to workflow_dispatch.
+# ---------------------------------------------------------------------------
+
+name: Daily ProfitPulse draft
+
+on:
+  schedule:
+    - cron: "0 17 * * *"   # 17:00 UTC = 03:00 Brisbane (GMT+10)
+  workflow_dispatch: {}     # lets you trigger it manually
+
+# The job needs permission to commit the new draft files back to the repo.
+permissions:
+  contents: write
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Get a copy of the repo onto the runner.
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      # 2. Node is needed for the analytics script.
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 3. Generate today's content pack with Claude Code, signed in with your
+      #    Claude subscription via the OAuth token stored as a repo secret.
+      #    --dangerously-skip-permissions lets it write files without an
+      #    interactive prompt. That flag is normally something to be careful
+      #    with, but here it is safe: this runner is a throwaway machine that
+      #    is destroyed after the job, and the token only has access to this
+      #    one repo.
+      - name: Generate today's content pack
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          npm install -g @anthropic-ai/claude-code
+          DATE=$(TZ=Australia/Brisbane date +%F)
+          echo "Generating content for $DATE (Brisbane time)"
+          PROMPT="Today's date is ${DATE}. $(cat scripts/generate.md)"
+          claude -p "$PROMPT" --dangerously-skip-permissions
+
+      # 4. Rebuild the analytics file the dashboard reads.
+      - name: Rebuild analytics
+        run: node scripts/build-analytics.mjs
+
+      # 5. Commit whatever was produced. If nothing changed (for example a
+      #    re-run on the same day), the commit is skipped instead of failing.
+      - name: Commit drafts and analytics
+        run: |
+          git config user.name "ProfitPulse Bot"
+          git config user.email "bot@users.noreply.github.com"
+          DATE=$(TZ=Australia/Brisbane date +%F)
+          git add drafts docs/data/analytics.json
+          git commit -m "Draft: ${DATE}" || echo "Nothing new to commit"
+          git push

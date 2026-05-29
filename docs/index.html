@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>ProfitPulse Daily</title>
+
+  <!-- Makes the app installable on Mac and iPhone. -->
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#1a2940" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ProfitPulse" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Chart.js, loaded from an allowed CDN, for the analytics charts. -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">ProfitPulse Daily</div>
+    <nav class="tabs">
+      <button id="tab-today" class="tab active" type="button">Today</button>
+      <button id="tab-analytics" class="tab" type="button">Analytics</button>
+    </nav>
+  </header>
+
+  <!-- ===================== TODAY ===================== -->
+  <main id="view-today" class="view">
+    <section class="card">
+      <div class="row">
+        <label for="datePicker">Draft date</label>
+        <input type="date" id="datePicker" />
+        <button id="reloadBtn" class="ghost" type="button">Load</button>
+      </div>
+      <p id="summaryLine" class="summary">Loading today's draft…</p>
+    </section>
+
+    <section id="draftCard" class="card hidden">
+      <div class="field">
+        <label for="title">Title</label>
+        <input type="text" id="title" />
+      </div>
+      <div class="field">
+        <label for="category">Category</label>
+        <input type="text" id="category" />
+      </div>
+      <div class="field">
+        <label for="excerpt">Excerpt</label>
+        <textarea id="excerpt" rows="2"></textarea>
+      </div>
+      <div class="field">
+        <label for="content">Body (raw, editable)</label>
+        <textarea id="content" rows="16" spellcheck="true"></textarea>
+      </div>
+
+      <div class="field">
+        <div class="field-head">
+          <label for="prompt">ChatGPT image prompt</label>
+          <button class="copy" data-copy="prompt" type="button">Copy</button>
+        </div>
+        <textarea id="prompt" rows="6" readonly></textarea>
+      </div>
+
+      <details class="social">
+        <summary>Social drafts</summary>
+        <div class="field">
+          <div class="field-head"><label for="linkedin">LinkedIn</label>
+            <button class="copy" data-copy="linkedin" type="button">Copy</button></div>
+          <textarea id="linkedin" rows="6" readonly></textarea>
+        </div>
+        <div class="field">
+          <div class="field-head"><label for="facebook">Facebook</label>
+            <button class="copy" data-copy="facebook" type="button">Copy</button></div>
+          <textarea id="facebook" rows="4" readonly></textarea>
+        </div>
+        <div class="field">
+          <div class="field-head"><label for="xpost">X / Twitter</label>
+            <button class="copy" data-copy="xpost" type="button">Copy</button></div>
+          <textarea id="xpost" rows="3" readonly></textarea>
+        </div>
+      </details>
+
+      <div class="field">
+        <label>Hero image</label>
+        <div id="dropzone" class="dropzone">
+          <span>Drop the ChatGPT image here, or tap to choose</span>
+          <input type="file" id="imageInput" accept="image/*" hidden />
+        </div>
+        <img id="preview" class="preview hidden" alt="Selected hero image" />
+      </div>
+
+      <div class="publish-row">
+        <button id="publishBtn" class="publish" type="button" disabled>Publish</button>
+        <span id="publishStatus" class="status"></span>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== ANALYTICS ===================== -->
+  <main id="view-analytics" class="view hidden">
+    <section class="card">
+      <h2>Category balance</h2>
+      <canvas id="catChart" height="160"></canvas>
+      <div id="catGaps" class="gaps"></div>
+    </section>
+
+    <section class="card">
+      <h2>Posting cadence</h2>
+      <canvas id="weekChart" height="140"></canvas>
+    </section>
+
+    <section class="card">
+      <h2>Most repeated themes</h2>
+      <div id="terms" class="chips"></div>
+    </section>
+
+    <section class="card two-col">
+      <div>
+        <h2>Industries not yet covered</h2>
+        <ul id="untouchedIndustries" class="list"></ul>
+      </div>
+      <div>
+        <h2>Services not yet referenced</h2>
+        <ul id="untouchedServices" class="list"></ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Internal link use</h2>
+      <ul id="linkTargets" class="list"></ul>
+    </section>
+
+    <p id="analyticsMeta" class="summary"></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
