@@ -1,0 +1,1 @@
+The authoritative voice and style guide lives in SYSTEM_PROMPT.md in this folder.
