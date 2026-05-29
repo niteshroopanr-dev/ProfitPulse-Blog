@@ -1,0 +1,18 @@
+A flat editorial illustration in a refined hand-drawn style for a Brisbane-based financial advisory firm called ProfitPulse.
+
+TITLE TEXT (must appear in the image): "The Recall Gap: Where Dental Practices Leave Revenue on the Chair"
+Render the title in elegant serif typography, similar to Fraunces or Playfair Display, positioned in the upper portion or upper-left of the composition. The title must be clearly legible against the background. Use cream or off-white colour for the title if the background is dark, or deep navy / charcoal if the background is light.
+
+CONCEPT TO ILLUSTRATE: A dental practice setting where clinical care and financial performance intersect. A calm, focused figure in professional attire reviews a simple financial chart or practice dashboard at a clean desk, with minimal dental clinic elements in the background suggesting the industry context — conveying the idea of a practice principal stepping back from the chair to look at the commercial picture.
+
+VISUAL STYLE: Sophisticated editorial illustration with a hand-drawn quality and subtle paper texture. Use the strategic and confident tonal direction for this post: muted sage green or dusty teal background (#7a9080 to #5a8a8a range) with cream highlights and gold details.
+
+Always maintain: soft hand-drawn linework, subtle paper or canvas grain, balanced asymmetric composition, calm and confident editorial mood. The aesthetic should match what you'd see in a sophisticated financial publication aimed at experienced business owners.
+
+COMPOSITION: Single focal scene with one human figure in subtle professional attire reviewing financial data at a clean desk, with understated dental clinic elements visible in the background to establish the industry context. Generous negative space around the title to ensure legibility. The character should feel reflective or thoughtful, never overtly cheerful or stock-photo-like.
+
+FORMAT: 16:10 aspect ratio (landscape), high resolution, suitable for use at 1200 pixels wide as a blog hero image.
+
+LOGO PLACEMENT (mandatory): Include the ProfitPulse brand mark in the bottom-right corner of the image. The logo is a wordmark reading "PROFITPULSE" in a clean modern sans-serif typeface, typically rendered in cream or off-white on darker backgrounds and in deep navy or charcoal on lighter backgrounds. The logo should occupy approximately 10 to 15 percent of the image width, with appropriate margin from the bottom and right edges (roughly 3 to 4 percent of image width as padding). It must remain clearly legible against whatever sits behind it in that corner; if the underlying scene would obscure the logo, add a subtle soft-edged shape or gentle gradient behind it to lift readability without looking like a sticker. Reference the canonical version at https://img1.wsimg.com/isteam/ip/b9b84d28-6f5c-41d5-a765-0a92e7984d13/Logo%20File%20Black%20Background%20(Equal%20Distance).png/:/rs=h:175,m for the exact wordmark proportions and style.
+
+EXCLUDE: cartoon style, photorealism, neon colours, sharp digital gradients, stock photography aesthetics, generic AI illustration tropes, 3D rendered look, multiple competing focal points, watermarks, logos other than the ProfitPulse wordmark specified above, additional text beyond the title and the logo.

@@ -1,0 +1,345 @@
+{
+  "generatedAt": "2026-05-29T20:57:25.626Z",
+  "totalPosts": 20,
+  "categories": [
+    {
+      "name": "Cash Flow",
+      "count": 2,
+      "lastDate": "2026-04-30",
+      "daysSinceLast": 30
+    },
+    {
+      "name": "Profitability",
+      "count": 5,
+      "lastDate": "2026-05-05",
+      "daysSinceLast": 25
+    },
+    {
+      "name": "Valuation & Exit",
+      "count": 1,
+      "lastDate": "2025-11-14",
+      "daysSinceLast": 197
+    },
+    {
+      "name": "Capital & Finance",
+      "count": 3,
+      "lastDate": "2026-05-11",
+      "daysSinceLast": 19
+    },
+    {
+      "name": "Fractional CFO",
+      "count": 7,
+      "lastDate": "2026-02-13",
+      "daysSinceLast": 106
+    },
+    {
+      "name": "Industry Focus",
+      "count": 2,
+      "lastDate": "2026-05-07",
+      "daysSinceLast": 23
+    }
+  ],
+  "repeatedTerms": [
+    {
+      "term": "cash",
+      "count": 87
+    },
+    {
+      "term": "decisions",
+      "count": 80
+    },
+    {
+      "term": "work",
+      "count": 66
+    },
+    {
+      "term": "where",
+      "count": 61
+    },
+    {
+      "term": "financial",
+      "count": 60
+    },
+    {
+      "term": "book",
+      "count": 57
+    },
+    {
+      "term": "small",
+      "count": 52
+    },
+    {
+      "term": "time",
+      "count": 52
+    },
+    {
+      "term": "rhythm",
+      "count": 50
+    },
+    {
+      "term": "without",
+      "count": 47
+    },
+    {
+      "term": "often",
+      "count": 45
+    },
+    {
+      "term": "usually",
+      "count": 45
+    },
+    {
+      "term": "months",
+      "count": 44
+    },
+    {
+      "term": "numbers",
+      "count": 44
+    },
+    {
+      "term": "growth",
+      "count": 41
+    },
+    {
+      "term": "customer",
+      "count": 41
+    },
+    {
+      "term": "margin",
+      "count": 41
+    },
+    {
+      "term": "revenue",
+      "count": 40
+    },
+    {
+      "term": "clarity",
+      "count": 39
+    },
+    {
+      "term": "year",
+      "count": 38
+    },
+    {
+      "term": "simple",
+      "count": 38
+    },
+    {
+      "term": "customers",
+      "count": 37
+    },
+    {
+      "term": "feel",
+      "count": 37
+    },
+    {
+      "term": "before",
+      "count": 37
+    },
+    {
+      "term": "consultation",
+      "count": 37
+    }
+  ],
+  "industries": {
+    "covered": [
+      {
+        "name": "Allied health and medical practices",
+        "count": 12
+      },
+      {
+        "name": "Professional services",
+        "count": 10
+      },
+      {
+        "name": "Hospitality",
+        "count": 10
+      },
+      {
+        "name": "Retail",
+        "count": 6
+      },
+      {
+        "name": "Manufacturing",
+        "count": 3
+      },
+      {
+        "name": "Aged care and disability  providers",
+        "count": 1
+      }
+    ],
+    "untouched": [
+      "Dental and specialist clinics",
+      "Veterinary practices",
+      "Engineering and architecture consultancies",
+      "Management and IT consulting",
+      "Marketing, creative and media agencies",
+      "Recruitment and labour hire",
+      "Real estate agencies and property management",
+      "Property development and construction",
+      "Building and specialist trades",
+      "Food and beverage production",
+      "Wholesale and distribution",
+      "Importers, exporters and customs brokers",
+      "Mining services contractors",
+      "Transport, logistics and freight",
+      "E-commerce and online retail",
+      "Accommodation and tourism operators",
+      "Childcare and education providers",
+      "Private schools and registered training organisations",
+      "Fitness, wellness and personal services",
+      "Agriculture and primary production",
+      "Technology and SaaS",
+      "Online course creators, coaches and paid communities",
+      "Biotech, medtech and life sciences scaleups",
+      "Renewable energy installers",
+      "Not-for-profits with commercial arms",
+      "Indigenous-owned enterprises and social enterprises",
+      "Professional sporting clubs and academies",
+      "Family offices and private investment vehicles",
+      "Franchise systems",
+      "Multi-site franchisees"
+    ]
+  },
+  "services": {
+    "referenced": [],
+    "untouched": [
+      "Profit Pulse Check",
+      "Profit & Cash Diagnostic",
+      "Financial Health Check (Quarterly)",
+      "Strategic Growth Diagnostic",
+      "Capital Allocation Review",
+      "Full Commercial Audit",
+      "Fractional CFO Partnership",
+      "Fractional CFO Capital Markets Add-on",
+      "13-Week Cash Flow Build",
+      "Working Capital Unlock",
+      "Debtor & Collections Reset",
+      "Supplier & Payables Optimisation",
+      "Banking & Facility Review",
+      "Treasury & FX Setup",
+      "Cost & Margin Deep Dive",
+      "Pricing Reset",
+      "KPI Dashboard Build & Run",
+      "Budgeting & Forecasting Setup",
+      "Annual Plan & Board Pack",
+      "Indicative Business Valuation",
+      "Comprehensive Business Valuation",
+      "Value Uplift Roadmap",
+      "Exit Readiness Diagnostic",
+      "Exit Preparation Program (12 to 24 months)",
+      "Vendor Due Diligence Pack",
+      "Capital Raise Feasibility",
+      "Information Memorandum & Pitch Pack",
+      "Acquisition Support",
+      "Operational Intelligence Review",
+      "Customer Concentration & Profitability Map",
+      "Product & Service Line Profitability",
+      "Workforce Capacity & Utilisation Review"
+    ]
+  },
+  "linkTargets": [
+    {
+      "url": "https://outlook.office.com/book/ProfitPulse1@profit-pulse.com.au/?ismsaljsauthenabled=true",
+      "count": 20
+    },
+    {
+      "url": "https://profit-pulse.com.au/book",
+      "count": 19
+    },
+    {
+      "url": "https://profit-pulse.com.au/what-is-a-fractional-cfo%3F-1",
+      "count": 10
+    },
+    {
+      "url": "https://profit-pulse.com.au/financial-analysis",
+      "count": 9
+    },
+    {
+      "url": "https://profit-pulse.com.au/services",
+      "count": 8
+    },
+    {
+      "url": "https://profit-pulse.com.au/capital-raise-preparation",
+      "count": 5
+    },
+    {
+      "url": "https://profit-pulse.com.au/capital-raise-brisbane",
+      "count": 3
+    },
+    {
+      "url": "https://profit-pulse.com.au/fractional-cfo-brisbane",
+      "count": 3
+    },
+    {
+      "url": "https://profit-pulse.com.au/business-valuations-101",
+      "count": 3
+    },
+    {
+      "url": "https://profit-pulse.com.au/fractional-cfo-costs",
+      "count": 2
+    },
+    {
+      "url": "https://profit-pulse.com.au/exit-readiness-101",
+      "count": 2
+    },
+    {
+      "url": "https://profit-pulse.com.au/valuation-brisbane-smes",
+      "count": 1
+    }
+  ],
+  "postsPerWeek": [
+    {
+      "week": "2025-W41",
+      "count": 1
+    },
+    {
+      "week": "2025-W44",
+      "count": 1
+    },
+    {
+      "week": "2025-W45",
+      "count": 2
+    },
+    {
+      "week": "2025-W46",
+      "count": 2
+    },
+    {
+      "week": "2025-W47",
+      "count": 2
+    },
+    {
+      "week": "2025-W49",
+      "count": 1
+    },
+    {
+      "week": "2025-W50",
+      "count": 1
+    },
+    {
+      "week": "2025-W51",
+      "count": 1
+    },
+    {
+      "week": "2026-W06",
+      "count": 2
+    },
+    {
+      "week": "2026-W07",
+      "count": 2
+    },
+    {
+      "week": "2026-W18",
+      "count": 2
+    },
+    {
+      "week": "2026-W19",
+      "count": 2
+    },
+    {
+      "week": "2026-W20",
+      "count": 1
+    }
+  ]
+}
