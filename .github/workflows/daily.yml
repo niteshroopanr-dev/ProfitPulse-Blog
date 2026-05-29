@@ -14,7 +14,7 @@ name: Daily ProfitPulse draft
 
 on:
   schedule:
-    - cron: "0 17 * * *"   # 17:00 UTC = 03:00 Brisbane (GMT+10)
+    - cron: "1 14 * * *"   # 17:00 UTC = 03:00 Brisbane (GMT+10)
   workflow_dispatch: {}     # lets you trigger it manually
 
 # The job needs permission to commit the new draft files back to the repo.
