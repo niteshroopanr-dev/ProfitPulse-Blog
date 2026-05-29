@@ -1,0 +1,22 @@
+[
+  {
+    "date": "2026-05-29",
+    "title": "The most profitable business on your street ran out of cash last week",
+    "excerpt": "Profitable businesses go broke every year. Not because they cannot sell, but because they cannot collect fast enough to pay the next round of bills.",
+    "content": "<p>The profit and loss statement is the most read document in small business, and the least useful for predicting whether you will still be operating in six months. It tells you what you earned. It does not tell you when the cash arrives, when it leaves, or whether the gap between those two events will quietly drown you.</p><p>Working capital is the gap. It is the money tied up in stock you have not sold, invoices you have not collected, and supplier bills you have already paid. For most owner-led businesses turning over five million or more, working capital is the single largest claim on cash, and most owners cannot tell you within a hundred thousand dollars what theirs looks like today.</p><h2>The number that matters more than profit</h2><p>The cash conversion cycle measures the number of days between paying for inputs and collecting from customers. A business with a 90 day cycle needs roughly three months of operating costs sitting in the bank just to stay open. A business that compresses that to 45 days frees up the same amount of cash without growing revenue, raising prices, or cutting costs.</p><p>This is the lever almost nobody pulls, because it does not appear on the P&amp;L. It hides in the balance sheet, which most owners glance at once a year when their accountant produces it.</p><h2>Where the cash actually sits</h2><p>Three places, in order of severity. Stock that turns slowly, particularly anything sitting more than 90 days. Debtors who pay on 60 day terms when your supplier wants 30. And work in progress that you have funded but not yet invoiced, which is the silent killer in services and construction.</p><p>You do not need a complicated system to find these. You need three reports, run monthly, and a willingness to act on what they show you.</p>",
+    "faqs": [
+      {
+        "q": "What is the cash conversion cycle?",
+        "a": "<p>The cash conversion cycle is the number of days between paying suppliers and collecting from customers. The shorter the cycle, the less cash your business needs to hold to operate at the same level of revenue.</p>"
+      },
+      {
+        "q": "How often should I review working capital?",
+        "a": "<p>Monthly at minimum. If your business is growing quickly or operates on tight margins, weekly is more appropriate. The review should cover days sales outstanding, days inventory outstanding, and days payable outstanding, with each compared to the same month last year.</p>"
+      },
+      {
+        "q": "What is a healthy cash conversion cycle?",
+        "a": "<p>It depends entirely on your industry. A wholesaler running at 45 days is healthy. A professional services firm running at 45 days has a problem. The benchmark that matters is your own trend over the last 24 months, and the working capital ratio of the strongest competitor in your sector.</p>"
+      }
+    ]
+  }
+]
