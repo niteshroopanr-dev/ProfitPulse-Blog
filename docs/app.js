@@ -8,7 +8,7 @@
 // ---------------------------------------------------------------------------
 
 // ===== CONFIG: the only two lines you need to set =====
-const WORKER_URL = "PASTE_YOUR_CLOUDFLARE_WORKER_URL_HERE";
+const WORKER_URL = "https://yellow-cloud-5dd8profitpulse-publish.nitesh-roopa-nr.workers.dev/";
 const RAW_BASE =
   "https://raw.githubusercontent.com/niteshroopanr-dev/ProfitPulse-Blog/main";
 // ======================================================
