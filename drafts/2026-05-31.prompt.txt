@@ -1,0 +1,23 @@
+A flat editorial illustration in a refined hand-drawn style for a Brisbane-based financial advisory firm called ProfitPulse.
+
+TITLE TEXT (must appear in the image): "The June Surge That Makes Allied Health Practices Look Better Than They Are"
+Render the title in elegant serif typography, similar to Fraunces or Playfair Display, positioned in the upper portion or upper-left of the composition. The title must be clearly legible against the background. Use cream or off-white colour for the title if the background is dark, or deep navy / charcoal if the background is light.
+
+CONCEPT TO ILLUSTRATE: A health practitioner — a physiotherapist or similar allied health professional — seated at a desk with a stethoscope resting to one side, studying a printed financial report or a simple chart. A wall calendar shows the month of June and a full appointment grid. The scene captures the tension between a busy clinical practice and the careful financial scrutiny required to understand whether that busyness is genuinely profitable. The mood is focused and reflective, not alarmed.
+
+VISUAL STYLE: Sophisticated editorial illustration with a hand-drawn quality and subtle paper texture. Choose one of these tonal directions based on the post's mood:
+- Warm and reflective (use this for posts about peace of mind, habits, perspective, slower thinking): cream/off-white background (#f5f0e6) with soft navy figures and champagne gold accents (#c9a96e)
+- Strategic and confident (use this for posts about valuation, profit, decisive action, capital): muted sage green or dusty teal background (#7a9080 to #5a8a8a range) with cream highlights and gold details
+- Cautionary or serious (use this for posts about risk, pitfalls, common mistakes): deep navy background (#1a2940 to #2a3548) with cream figures and gold accents
+
+This post is cautionary in tone — use the deep navy background with cream figures and gold accents.
+
+Always maintain: soft hand-drawn linework, subtle paper or canvas grain, balanced asymmetric composition, calm and confident editorial mood. The aesthetic should match what you'd see in a sophisticated financial publication aimed at experienced business owners.
+
+COMPOSITION: Single focal scene with one human figure in understated professional attire, seated and studying financial information. The calendar and financial report are supporting elements, not competing focal points. Generous negative space around the title to ensure legibility. The figure should feel thoughtful, never overtly cheerful or stock-photo-like.
+
+FORMAT: 16:10 aspect ratio (landscape), high resolution, suitable for use at 1200 pixels wide as a blog hero image.
+
+LOGO PLACEMENT (mandatory): Include the ProfitPulse brand mark in the bottom-right corner of the image. The logo is a wordmark reading "PROFITPULSE" in a clean modern sans-serif typeface, typically rendered in cream or off-white on darker backgrounds and in deep navy or charcoal on lighter backgrounds. The logo should occupy approximately 10 to 15 percent of the image width, with appropriate margin from the bottom and right edges (roughly 3 to 4 percent of image width as padding). It must remain clearly legible against whatever sits behind it in that corner; if the underlying scene would obscure the logo, add a subtle soft-edged shape or gentle gradient behind it to lift readability without looking like a sticker. Reference the canonical version at https://img1.wsimg.com/isteam/ip/b9b84d28-6f5c-41d5-a765-0a92e7984d13/Logo%20File%20Black%20Background%20(Equal%20Distance).png/:/rs=h:175,m for the exact wordmark proportions and style.
+
+EXCLUDE: cartoon style, photorealism, neon colours, sharp digital gradients, stock photography aesthetics, generic AI illustration tropes, 3D rendered look, multiple competing focal points, watermarks, logos other than the ProfitPulse wordmark specified above, additional text beyond the title and the logo.
