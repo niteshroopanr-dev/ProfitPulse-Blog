@@ -31,6 +31,8 @@ const posts = JSON.parse(readFileSync(POSTS_PATH, "utf8"));
 
 // --- upsert each due post ----------------------------------------------------
 
+let lastPublishedTitle = null;
+
 for (const entry of due) {
   const post = entry.post;
   post.publishedAt = entry.scheduledFor;
@@ -45,10 +47,13 @@ for (const entry of due) {
   }
 
   entry.status = "published";
+  lastPublishedTitle = post.title;
   console.log(`Published: ${post.title} (scheduled for ${entry.scheduledFor})`);
 }
 
-// --- write both files --------------------------------------------------------
+// --- write output files ------------------------------------------------------
 
-writeFileSync(POSTS_PATH,    JSON.stringify(posts,    null, 2));
-writeFileSync(SCHEDULE_PATH, JSON.stringify(schedule, null, 2));
+writeFileSync(POSTS_PATH,        JSON.stringify(posts,    null, 2));
+writeFileSync(SCHEDULE_PATH,     JSON.stringify(schedule, null, 2));
+// Signal to CI that something was published (used to trigger social generation).
+writeFileSync("published-flag.txt", lastPublishedTitle);
