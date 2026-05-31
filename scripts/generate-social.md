@@ -2,7 +2,12 @@ You are generating social media posts for the most recently published ProfitPuls
 
 Step 1. Read brain/SYSTEM_PROMPT.md for the full ProfitPulse voice, brand posture rules, and what you must never do. Everything you write must follow those rules (Australian spelling, no em-dashes, no AI buzzwords, never arrogant, never reference competitors, never negative about anyone, never invent statistics).
 
-Step 2. Read posts.json. The post to work from is the FIRST item in the array, which is the one just published. Use its title, excerpt, and content (read past the HTML tags to understand the actual argument). Write social posts about THIS specific post, drawing on a real, specific insight from it, not generic filler.
+Step 2. Find the post to write about:
+
+- If the environment variable SOCIAL_TITLE is set, search for the post with that exact title. Read both posts.json and docs/data/schedule.json (for schedule.json, look inside the "post" field of each entry). If SOCIAL_DATE is also set, further narrow the match to entries whose date equals SOCIAL_DATE. Use the first match found across either file. If no match is found, fall back to the first item in posts.json.
+- If SOCIAL_TITLE is not set, use the FIRST item in posts.json (the most recently published post).
+
+Use the chosen post's title, excerpt, and content (read past the HTML tags to understand the actual argument). Write social posts about THIS specific post, drawing on a real, specific insight from it, not generic filler.
 
 Step 3. Write the three drafts to docs/data/social-latest.json in exactly this shape:
 

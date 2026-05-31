@@ -18,7 +18,16 @@ on:
     branches: [main]
     paths:
       - "posts.json"     # only when a post is actually published or revised
-  workflow_dispatch: {}   # also runnable by hand from the Actions tab
+  workflow_dispatch:
+    inputs:
+      title:
+        description: "Title of the post to write social drafts for (leave blank to use latest in posts.json)"
+        required: false
+        type: string
+      date:
+        description: "Date of the post YYYY-MM-DD (used to disambiguate when title alone is not unique)"
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -38,6 +47,8 @@ jobs:
       - name: Draft social posts from the latest published post
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          SOCIAL_TITLE: ${{ github.event.inputs.title }}
+          SOCIAL_DATE: ${{ github.event.inputs.date }}
         run: |
           npm install -g @anthropic-ai/claude-code
           claude -p "$(cat scripts/generate-social.md)" --dangerously-skip-permissions
