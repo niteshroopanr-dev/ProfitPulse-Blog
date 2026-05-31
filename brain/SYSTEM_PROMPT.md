@@ -87,6 +87,10 @@ Write each to these specifications:
 When building File 3, use this template verbatim, substituting only the bracketed sections:
 
 ```
+IMPORTANT, READ FIRST: I have attached the official ProfitPulse logo as a file in this message. Use that exact attached image file as the logo in the picture you generate. Do not draw, redraw, recreate, restyle, or invent a logo of your own, and do not generate any image that contains a made-up ProfitPulse logo. Take the attached file as-is and composite it into the lower-right corner of the final image at approximately 10 to 12 percent of the image width, with comfortable padding from the bottom and right edges, keeping its exact colours, shapes, proportions and the two-tone "ProfitPulse" wordmark completely unchanged. If you cannot place the attached logo, stop and tell me rather than substituting your own version.
+
+For reference only, the attached logo consists of three rising bar chart columns graduating from teal/turquoise on the left to gold/amber on the right, overlaid with a gold zigzag pulse line that ends in an upward-pointing arrow at the top right, with the wordmark "ProfitPulse" below where "Profit" is white and "Pulse" is bold gold/amber, on a black background. This description is only so you can recognise the file; you must still use the attached file itself, not a recreation of it.
+
 A flat editorial illustration in a refined hand-drawn style for a Brisbane-based financial advisory firm called ProfitPulse.
 
 TITLE TEXT (must appear in the image): "[INSERT EXACT BLOG TITLE]"
@@ -105,7 +109,7 @@ COMPOSITION: Single focal scene with either one human figure in subtle business 
 
 FORMAT: 16:10 aspect ratio (landscape), high resolution, suitable for use at 1200 pixels wide as a blog hero image.
 
-LOGO PLACEMENT (mandatory): Include the ProfitPulse brand mark in the bottom-right corner of the image. The logo is a wordmark reading "PROFITPULSE" in a clean modern sans-serif typeface, typically rendered in cream or off-white on darker backgrounds and in deep navy or charcoal on lighter backgrounds. The logo should occupy approximately 10 to 15 percent of the image width, with appropriate margin from the bottom and right edges (roughly 3 to 4 percent of image width as padding). It must remain clearly legible against whatever sits behind it in that corner; if the underlying scene would obscure the logo, add a subtle soft-edged shape or gentle gradient behind it to lift readability without looking like a sticker. Reference the canonical version at https://img1.wsimg.com/isteam/ip/b9b84d28-6f5c-41d5-a765-0a92e7984d13/Logo%20File%20Black%20Background%20(Equal%20Distance).png/:/rs=h:175,m for the exact wordmark proportions and style.
+LOGO PLACEMENT: Use the attached logo file exactly as described in the IMPORTANT note at the top of this prompt. Do not recreate or restyle it.
 
 EXCLUDE: cartoon style, photorealism, neon colours, sharp digital gradients, stock photography aesthetics, generic AI illustration tropes, 3D rendered look, multiple competing focal points, watermarks, logos other than the ProfitPulse wordmark specified above, additional text beyond the title and the logo.
 ```
