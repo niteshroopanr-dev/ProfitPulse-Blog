@@ -1,96 +1,100 @@
 {
-  "generatedAt": "2026-05-31T08:44:42.244Z",
-  "totalPosts": 22,
+  "generatedAt": "2026-05-31T15:30:22.690Z",
+  "totalPosts": 23,
   "categories": [
     {
       "name": "Cash Flow",
       "count": 2,
       "lastDate": "2026-04-30",
-      "daysSinceLast": 31
+      "daysSinceLast": 32
     },
     {
       "name": "Profitability",
       "count": 5,
       "lastDate": "2026-05-05",
-      "daysSinceLast": 26
+      "daysSinceLast": 27
     },
     {
       "name": "Valuation & Exit",
-      "count": 1,
-      "lastDate": "2025-11-14",
-      "daysSinceLast": 198
+      "count": 2,
+      "lastDate": "2026-06-01",
+      "daysSinceLast": 0
     },
     {
       "name": "Capital & Finance",
       "count": 3,
       "lastDate": "2026-05-11",
-      "daysSinceLast": 20
+      "daysSinceLast": 21
     },
     {
       "name": "Fractional CFO",
       "count": 7,
       "lastDate": "2026-02-13",
-      "daysSinceLast": 107
+      "daysSinceLast": 108
     },
     {
       "name": "Industry Focus",
       "count": 4,
       "lastDate": "2026-05-31",
-      "daysSinceLast": 0
+      "daysSinceLast": 1
     }
   ],
   "repeatedTerms": [
     {
       "term": "cash",
-      "count": 99
+      "count": 104
     },
     {
       "term": "decisions",
-      "count": 82
+      "count": 84
+    },
+    {
+      "term": "financial",
+      "count": 81
+    },
+    {
+      "term": "work",
+      "count": 78
+    },
+    {
+      "term": "where",
+      "count": 76
     },
     {
       "term": "practice",
       "count": 76
     },
     {
-      "term": "work",
-      "count": 76
-    },
-    {
-      "term": "financial",
-      "count": 74
-    },
-    {
-      "term": "where",
-      "count": 70
+      "term": "revenue",
+      "count": 68
     },
     {
       "term": "book",
-      "count": 67
-    },
-    {
-      "term": "revenue",
-      "count": 63
-    },
-    {
-      "term": "time",
-      "count": 56
+      "count": 68
     },
     {
       "term": "year",
-      "count": 54
+      "count": 64
+    },
+    {
+      "term": "time",
+      "count": 60
+    },
+    {
+      "term": "without",
+      "count": 55
     },
     {
       "term": "often",
-      "count": 54
+      "count": 55
     },
     {
       "term": "margin",
       "count": 53
     },
     {
-      "term": "without",
-      "count": 53
+      "term": "before",
+      "count": 52
     },
     {
       "term": "small",
@@ -101,44 +105,40 @@
       "count": 51
     },
     {
+      "term": "numbers",
+      "count": 50
+    },
+    {
+      "term": "months",
+      "count": 49
+    },
+    {
       "term": "usually",
       "count": 49
     },
     {
-      "term": "numbers",
-      "count": 48
-    },
-    {
-      "term": "months",
-      "count": 47
+      "term": "through",
+      "count": 44
     },
     {
       "term": "you're",
       "count": 44
     },
     {
-      "term": "before",
+      "term": "customer",
       "count": 43
+    },
+    {
+      "term": "review",
+      "count": 43
+    },
+    {
+      "term": "valuation",
+      "count": 42
     },
     {
       "term": "health",
       "count": 42
-    },
-    {
-      "term": "growth",
-      "count": 42
-    },
-    {
-      "term": "customer",
-      "count": 41
-    },
-    {
-      "term": "don't",
-      "count": 41
-    },
-    {
-      "term": "review",
-      "count": 40
     }
   ],
   "industries": {
@@ -149,11 +149,11 @@
       },
       {
         "name": "Professional services",
-        "count": 10
+        "count": 11
       },
       {
         "name": "Hospitality",
-        "count": 10
+        "count": 11
       },
       {
         "name": "Retail",
@@ -260,16 +260,16 @@
       "count": 8
     },
     {
+      "url": "https://profit-pulse.com.au/valuation-brisbane-smes",
+      "count": 6
+    },
+    {
       "url": "https://profit-pulse.com.au/fractional-cfo-brisbane",
       "count": 5
     },
     {
       "url": "https://profit-pulse.com.au/capital-raise-preparation",
       "count": 5
-    },
-    {
-      "url": "https://profit-pulse.com.au/valuation-brisbane-smes",
-      "count": 4
     },
     {
       "url": "https://profit-pulse.com.au/capital-raise-brisbane",
@@ -280,6 +280,10 @@
       "count": 3
     },
     {
+      "url": "https://outlook.office.com/book/ProfitPulse1@profit-pulse.com.au/",
+      "count": 2
+    },
+    {
       "url": "https://profit-pulse.com.au/fractional-cfo-costs",
       "count": 2
     },
@@ -288,7 +292,7 @@
       "count": 2
     },
     {
-      "url": "https://outlook.office.com/book/ProfitPulse1@profit-pulse.com.au/",
+      "url": "https://profit-pulse.com.au/exit-readiness-brisbane",
       "count": 1
     }
   ],
@@ -348,6 +352,10 @@
     {
       "week": "2026-W22",
       "count": 2
+    },
+    {
+      "week": "2026-W23",
+      "count": 1
     }
   ]
 }
