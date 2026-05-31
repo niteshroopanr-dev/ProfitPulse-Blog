@@ -101,6 +101,11 @@ async function loadDraft(date) {
   $("publishBtn").disabled = true;
   $("publishBtn").textContent = "Publish";
   setFieldsReadOnly(false);
+  $("socialPanel").classList.add("hidden");
+  $("socialStatus").textContent = "";
+  $("li").value = "";
+  $("fb").value = "";
+  $("gbp").value = "";
 
   // Check whether this date already has a published post
   let publishedPost = null;
@@ -135,6 +140,20 @@ async function loadDraft(date) {
     $("summaryLine").textContent =
       `Published: ${publishedPost.title} (Category: ${publishedPost.category})`;
     $("draftCard").classList.remove("hidden");
+
+    // If social drafts already exist for this post, surface them immediately.
+    try {
+      const sr = await fetch(`${RAW_BASE}/docs/data/social-latest.json?t=${Date.now()}`);
+      if (sr.ok) {
+        const s = await sr.json();
+        if (s.title === publishedPost.title) {
+          $("li").value = s.linkedin || "";
+          $("fb").value = s.facebook || "";
+          $("gbp").value = s.google || "";
+          $("socialPanel").classList.remove("hidden");
+        }
+      }
+    } catch {}
   } else {
     // DRAFT MODE — existing behaviour
     try {
@@ -165,8 +184,16 @@ async function loadDraft(date) {
   }
 }
 
-// Copy button for the image prompt (wired at page load; social copy buttons wired after publish)
+// Copy buttons — wired once at page load for both the prompt field and the social panel.
 $("draftCard").querySelectorAll(".copy").forEach((btn) => {
+  btn.onclick = async () => {
+    await navigator.clipboard.writeText($(btn.dataset.copy).value);
+    const old = btn.textContent;
+    btn.textContent = "Copied";
+    setTimeout(() => (btn.textContent = old), 1200);
+  };
+});
+document.querySelectorAll(".copy-social").forEach((btn) => {
   btn.onclick = async () => {
     await navigator.clipboard.writeText($(btn.dataset.copy).value);
     const old = btn.textContent;
@@ -211,6 +238,7 @@ function handleImage(file) {
 // Reveal the social panel and poll until drafts for publishedTitle appear.
 function revealAndPollSocial(publishedTitle) {
   $("socialPanel").classList.remove("hidden");
+  $("socialPanel").scrollIntoView({ behavior: "smooth", block: "start" });
   $("socialStatus").textContent = "Drafting your social posts, this takes a minute or two...";
   let attempts = 0;
   const pollTimer = setInterval(async () => {
@@ -225,14 +253,6 @@ function revealAndPollSocial(publishedTitle) {
           $("li").value = s.linkedin || "";
           $("fb").value = s.facebook || "";
           $("gbp").value = s.google || "";
-          $("socialPanel").querySelectorAll(".copy-social").forEach((btn) => {
-            btn.onclick = async () => {
-              await navigator.clipboard.writeText($(btn.dataset.copy).value);
-              const old = btn.textContent;
-              btn.textContent = "Copied";
-              setTimeout(() => (btn.textContent = old), 1200);
-            };
-          });
           return;
         }
       }
