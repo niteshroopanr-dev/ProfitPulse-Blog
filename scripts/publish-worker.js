@@ -171,7 +171,19 @@ export default {
           body: JSON.stringify({ sha: commit.sha }),
         });
 
-        return json({ ok: true, message: `Scheduled for ${scheduledFor}.` });
+        // Trigger social draft generation (best-effort; don't fail the schedule if this errors).
+        let socialNote = "";
+        try {
+          await gh(token,
+            `/repos/${OWNER}/${REPO}/actions/workflows/social.yml/dispatches`, {
+            method: "POST",
+            body: JSON.stringify({ ref: BRANCH, inputs: { title: post.title, date: post.date } }),
+          });
+        } catch {
+          socialNote = " Social drafts could not be queued.";
+        }
+
+        return json({ ok: true, message: `Scheduled for ${scheduledFor}.${socialNote}` });
       } catch (err) {
         return json({ error: String(err.message || err) }, 500);
       }
@@ -271,6 +283,20 @@ export default {
         body: JSON.stringify({ sha: commit.sha }),
       });
 
+      // Trigger social draft generation for new publishes only (best-effort).
+      let socialNote = "";
+      if (!isEdit) {
+        try {
+          await gh(token,
+            `/repos/${OWNER}/${REPO}/actions/workflows/social.yml/dispatches`, {
+            method: "POST",
+            body: JSON.stringify({ ref: BRANCH, inputs: { title: post.title, date: post.date } }),
+          });
+        } catch {
+          socialNote = " Social drafts could not be queued.";
+        }
+      }
+
       return json({
         ok: true,
         mode: isEdit ? "revised" : "published",
@@ -279,7 +305,7 @@ export default {
         updatedAt: post.updatedAt || null,
         message: isEdit
           ? `Revised. "${post.title}" updated in place. Site updates within five minutes.`
-          : `Published. Post added to posts.json. Site updates within five minutes.`,
+          : `Published. Post added to posts.json. Site updates within five minutes.${socialNote}`,
       });
     } catch (err) {
       return json({ error: String(err.message || err) }, 500);
