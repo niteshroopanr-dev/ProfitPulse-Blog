@@ -68,6 +68,7 @@ async function gh(token, path, options = {}) {
     const text = await res.text();
     throw new Error(`GitHub ${path} failed (${res.status}): ${text}`);
   }
+  if (res.status === 204) return null; // No Content (e.g. workflow dispatch)
   return res.json();
 }
 
@@ -86,6 +87,22 @@ export default {
       return json({ error: "Body was not valid JSON." }, 400);
     }
 
+    // --- generate action: trigger the batch draft workflow ---
+    if (payload.action === "generate") {
+      const days = String(payload.days || "3");
+      try {
+        await gh(token,
+          `/repos/${OWNER}/${REPO}/actions/workflows/batch.yml/dispatches`, {
+          method: "POST",
+          body: JSON.stringify({ ref: BRANCH, inputs: { days } }),
+        });
+        return json({ ok: true, message: "Generation started. Drafts appear in a couple of minutes." });
+      } catch (err) {
+        return json({ error: String(err.message || err) }, 500);
+      }
+    }
+
+    // --- publish / edit action (default) ---
     const post = payload.post;
     const imageBase64 = payload.imageBase64 || null;       // optional now
     const originalTitle = payload.originalTitle || null;   // sent only when editing
