@@ -286,6 +286,44 @@ $("publishBtn").onclick = async () => {
   }
 };
 
+// Schedule
+$("scheduleBtn").onclick = async () => {
+  if (!selectedImageBase64) {
+    $("publishStatus").textContent = "Scheduling needs a hero image.";
+    return;
+  }
+  const scheduleAtValue = $("scheduleAt").value;
+  if (!scheduleAtValue) {
+    $("publishStatus").textContent = "Pick a date and time first.";
+    return;
+  }
+  if (WORKER_URL.includes("PASTE_YOUR")) {
+    $("publishStatus").textContent = "Set WORKER_URL in app.js first.";
+    return;
+  }
+  const scheduledFor = new Date(scheduleAtValue).toISOString();
+  const post = {
+    date: $("draftCard").dataset.date,
+    category: $("category").value.trim(),
+    title: $("title").value.trim(),
+    excerpt: $("excerpt").value.trim(),
+    content: $("content").value,
+    faqs: JSON.parse($("draftCard").dataset.faqs || "[]"),
+  };
+  $("publishStatus").textContent = "Scheduling…";
+  try {
+    const res = await fetch(WORKER_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "schedule", post, scheduledFor, imageBase64: selectedImageBase64 }),
+    });
+    const data = await res.json();
+    $("publishStatus").textContent = data.ok ? data.message : `Failed: ${data.error}`;
+  } catch (e) {
+    $("publishStatus").textContent = `Failed: ${e.message}`;
+  }
+};
+
 // --- ANALYTICS panel ---------------------------------------------------------
 
 let analyticsLoaded = false;
