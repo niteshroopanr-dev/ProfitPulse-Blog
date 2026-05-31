@@ -208,6 +208,44 @@ function handleImage(file) {
   reader.readAsDataURL(file);
 }
 
+// Reveal the social panel and poll until drafts for publishedTitle appear.
+function revealAndPollSocial(publishedTitle) {
+  $("socialPanel").classList.remove("hidden");
+  $("socialStatus").textContent = "Drafting your social posts, this takes a minute or two...";
+  let attempts = 0;
+  const pollTimer = setInterval(async () => {
+    attempts++;
+    try {
+      const sr = await fetch(`${RAW_BASE}/docs/data/social-latest.json?t=${Date.now()}`);
+      if (sr.ok) {
+        const s = await sr.json();
+        if (s.title === publishedTitle) {
+          clearInterval(pollTimer);
+          $("socialStatus").textContent = "";
+          $("li").value = s.linkedin || "";
+          $("fb").value = s.facebook || "";
+          $("gbp").value = s.google || "";
+          $("socialPanel").querySelectorAll(".copy-social").forEach((btn) => {
+            btn.onclick = async () => {
+              await navigator.clipboard.writeText($(btn.dataset.copy).value);
+              const old = btn.textContent;
+              btn.textContent = "Copied";
+              setTimeout(() => (btn.textContent = old), 1200);
+            };
+          });
+          return;
+        }
+      }
+      // 404 or title mismatch: continue polling
+    } catch {}
+    if (attempts >= 12) {
+      clearInterval(pollTimer);
+      $("socialStatus").textContent =
+        "Your social posts are still being prepared. Reload the page in a minute to see them.";
+    }
+  }, 15000);
+}
+
 // Publish / Save changes
 $("publishBtn").onclick = async () => {
   if (!editing && !selectedImageBase64) return; // image required for new posts only
@@ -241,41 +279,7 @@ $("publishBtn").onclick = async () => {
     const data = await res.json();
     if (data.ok) {
       $("publishStatus").textContent = data.message;
-      const publishedTitle = post.title;
-      $("socialPanel").classList.remove("hidden");
-      $("socialStatus").textContent = "Drafting your social posts, this takes a minute or two...";
-      let attempts = 0;
-      const pollTimer = setInterval(async () => {
-        attempts++;
-        try {
-          const sr = await fetch(`${RAW_BASE}/docs/data/social-latest.json?t=${Date.now()}`);
-          if (sr.ok) {
-            const s = await sr.json();
-            if (s.title === publishedTitle) {
-              clearInterval(pollTimer);
-              $("socialStatus").textContent = "";
-              $("li").value = s.linkedin || "";
-              $("fb").value = s.facebook || "";
-              $("gbp").value = s.google || "";
-              $("socialPanel").querySelectorAll(".copy-social").forEach((btn) => {
-                btn.onclick = async () => {
-                  await navigator.clipboard.writeText($(btn.dataset.copy).value);
-                  const old = btn.textContent;
-                  btn.textContent = "Copied";
-                  setTimeout(() => (btn.textContent = old), 1200);
-                };
-              });
-              return;
-            }
-          }
-          // 404 or title mismatch: continue polling
-        } catch {}
-        if (attempts >= 12) {
-          clearInterval(pollTimer);
-          $("socialStatus").textContent =
-            "Your social posts are still being prepared. Reload the page in a minute to see them.";
-        }
-      }, 15000);
+      revealAndPollSocial(post.title);
     } else {
       $("publishStatus").textContent = `Failed: ${data.error}`;
       btn.disabled = false;
@@ -319,6 +323,7 @@ $("scheduleBtn").onclick = async () => {
     });
     const data = await res.json();
     $("publishStatus").textContent = data.ok ? data.message : `Failed: ${data.error}`;
+    if (data.ok) revealAndPollSocial(post.title);
   } catch (e) {
     $("publishStatus").textContent = `Failed: ${e.message}`;
   }
