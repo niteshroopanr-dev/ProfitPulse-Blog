@@ -8,7 +8,7 @@
 // so you are never shown stale content.
 // ---------------------------------------------------------------------------
 
-const SHELL = "profitpulse-shell-v1";
+const SHELL = "profitpulse-shell-v2";
 const SHELL_FILES = [
   ".",
   "index.html",
