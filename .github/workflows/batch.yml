@@ -1,0 +1,65 @@
+# ---------------------------------------------------------------------------
+# Batch draft generation
+#
+# Generates drafts for the next N calendar days (Brisbane time) starting
+# tomorrow. Each date is skipped if a draft file already exists or if the
+# date already has a published post in posts.json. Dates run in order so
+# each invocation of Claude sees the drafts written by earlier ones and
+# avoids repeating topics or industries.
+# ---------------------------------------------------------------------------
+
+name: Batch draft generation
+
+on:
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "Number of days ahead to draft (starting tomorrow)"
+        default: "3"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  batch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Generate drafts in order
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          TODAY_BRISBANE=$(TZ="Australia/Brisbane" date +%Y-%m-%d)
+          for i in $(seq 1 ${{ github.event.inputs.days }}); do
+            DRAFT_DATE=$(TZ="Australia/Brisbane" date -d "$TODAY_BRISBANE + $i days" +%Y-%m-%d)
+            if [ ! -f "drafts/${DRAFT_DATE}.json" ] && ! grep -q "\"date\": \"${DRAFT_DATE}\"" posts.json; then
+              echo "=== Generating draft for $DRAFT_DATE ==="
+              export DRAFT_DATE
+              claude -p "$(cat scripts/generate-one.md)" --dangerously-skip-permissions
+            else
+              echo "=== Skipping $DRAFT_DATE (already exists) ==="
+            fi
+          done
+
+      - name: Rebuild analytics
+        run: node scripts/build-analytics.mjs
+
+      - name: Commit and push
+        run: |
+          git config user.name "ProfitPulse Bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add drafts/ docs/data/
+          git commit -m "Batch drafts" || echo "Nothing to commit"
+          git push
