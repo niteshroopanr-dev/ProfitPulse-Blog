@@ -102,6 +102,81 @@ export default {
       }
     }
 
+    // --- schedule action: commit image + schedule entry, not posts.json ---
+    if (payload.action === "schedule") {
+      const { post, scheduledFor, imageBase64 } = payload;
+      if (!post || !post.title || !post.date || !scheduledFor || !imageBase64) {
+        return json({ error: "Need post (with title and date), scheduledFor, and imageBase64." }, 400);
+      }
+
+      try {
+        // 1. Resolve image URL and embed it in post.content.
+        const imagePath = `images/${slugify(post.title)}.png`;
+        const rawUrl =
+          `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${imagePath}`;
+        if (post.content && post.content.includes("HERO_IMAGE_URL_PENDING")) {
+          post.content = post.content.replace("HERO_IMAGE_URL_PENDING", rawUrl);
+        } else if (post.content && /<img[^>]*>/i.test(post.content)) {
+          post.content = post.content.replace(/<img[^>]*>/i, `<img src="${rawUrl}" />`);
+        } else {
+          post.content = `<img src="${rawUrl}" />` + (post.content || "");
+        }
+
+        // 2. Read existing schedule.json; treat as [] if the file does not exist yet.
+        let schedule = [];
+        try {
+          const schedFile = await gh(token,
+            `/repos/${OWNER}/${REPO}/contents/docs/data/schedule.json?ref=${BRANCH}`);
+          schedule = JSON.parse(atob(schedFile.content.replace(/\n/g, "")));
+        } catch {}
+        schedule.push({ scheduledFor, post, status: "scheduled" });
+        const newScheduleJson = JSON.stringify(schedule, null, 2);
+
+        // 3. One atomic commit: image + schedule.json (NOT posts.json).
+        const ref = await gh(token, `/repos/${OWNER}/${REPO}/git/ref/heads/${BRANCH}`);
+        const baseCommitSha = ref.object.sha;
+        const baseCommit = await gh(token,
+          `/repos/${OWNER}/${REPO}/git/commits/${baseCommitSha}`);
+        const baseTreeSha = baseCommit.tree.sha;
+
+        const imageBlob = await gh(token, `/repos/${OWNER}/${REPO}/git/blobs`, {
+          method: "POST",
+          body: JSON.stringify({ content: imageBase64, encoding: "base64" }),
+        });
+        const schedBlob = await gh(token, `/repos/${OWNER}/${REPO}/git/blobs`, {
+          method: "POST",
+          body: JSON.stringify({ content: newScheduleJson, encoding: "utf-8" }),
+        });
+
+        const newTree = await gh(token, `/repos/${OWNER}/${REPO}/git/trees`, {
+          method: "POST",
+          body: JSON.stringify({
+            base_tree: baseTreeSha,
+            tree: [
+              { path: imagePath,                    mode: "100644", type: "blob", sha: imageBlob.sha },
+              { path: "docs/data/schedule.json",    mode: "100644", type: "blob", sha: schedBlob.sha },
+            ],
+          }),
+        });
+        const commit = await gh(token, `/repos/${OWNER}/${REPO}/git/commits`, {
+          method: "POST",
+          body: JSON.stringify({
+            message: `Schedule: ${post.title} for ${scheduledFor}`,
+            tree: newTree.sha,
+            parents: [baseCommitSha],
+          }),
+        });
+        await gh(token, `/repos/${OWNER}/${REPO}/git/refs/heads/${BRANCH}`, {
+          method: "PATCH",
+          body: JSON.stringify({ sha: commit.sha }),
+        });
+
+        return json({ ok: true, message: `Scheduled for ${scheduledFor}.` });
+      } catch (err) {
+        return json({ error: String(err.message || err) }, 500);
+      }
+    }
+
     // --- publish / edit action (default) ---
     const post = payload.post;
     const imageBase64 = payload.imageBase64 || null;       // optional now
