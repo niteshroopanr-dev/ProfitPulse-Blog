@@ -64,25 +64,6 @@
         <textarea id="prompt" rows="6" readonly></textarea>
       </div>
 
-      <details class="social">
-        <summary>Social drafts</summary>
-        <div class="field">
-          <div class="field-head"><label for="linkedin">LinkedIn</label>
-            <button class="copy" data-copy="linkedin" type="button">Copy</button></div>
-          <textarea id="linkedin" rows="6" readonly></textarea>
-        </div>
-        <div class="field">
-          <div class="field-head"><label for="facebook">Facebook</label>
-            <button class="copy" data-copy="facebook" type="button">Copy</button></div>
-          <textarea id="facebook" rows="4" readonly></textarea>
-        </div>
-        <div class="field">
-          <div class="field-head"><label for="xpost">X / Twitter</label>
-            <button class="copy" data-copy="xpost" type="button">Copy</button></div>
-          <textarea id="xpost" rows="3" readonly></textarea>
-        </div>
-      </details>
-
       <div class="field">
         <label>Hero image</label>
         <div id="dropzone" class="dropzone">
@@ -97,6 +78,32 @@
         <span id="publishStatus" class="status"></span>
       </div>
     </section>
+
+    <div id="socialPanel" class="card hidden">
+      <h2>Social posts</h2>
+      <p id="socialStatus"></p>
+      <div class="field">
+        <div class="field-head">
+          <label for="li">LinkedIn</label>
+          <button class="copy-social" data-copy="li" type="button">Copy</button>
+        </div>
+        <textarea id="li" rows="6" readonly></textarea>
+      </div>
+      <div class="field">
+        <div class="field-head">
+          <label for="fb">Facebook</label>
+          <button class="copy-social" data-copy="fb" type="button">Copy</button>
+        </div>
+        <textarea id="fb" rows="4" readonly></textarea>
+      </div>
+      <div class="field">
+        <div class="field-head">
+          <label for="gbp">Google Business Profile</label>
+          <button class="copy-social" data-copy="gbp" type="button">Copy</button>
+        </div>
+        <textarea id="gbp" rows="4" readonly></textarea>
+      </div>
+    </div>
   </main>
 
   <!-- ===================== ANALYTICS ===================== -->

@@ -1,0 +1,51 @@
+# ---------------------------------------------------------------------------
+# Social posts on publish
+#
+# Runs automatically a moment after you press Publish in the app. Publishing
+# commits your final post to posts.json, and this workflow notices that change,
+# reads the freshly published post, and drafts your LinkedIn, Facebook and
+# Google posts from the final text. The app then displays them.
+#
+# It only triggers on changes to posts.json, so the 3am draft job (which writes
+# to drafts/ and docs/data/) never sets it off. It commits only the social file,
+# so it never re-triggers itself.
+# ---------------------------------------------------------------------------
+
+name: Social posts on publish
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "posts.json"     # only when a post is actually published or revised
+  workflow_dispatch: {}   # also runnable by hand from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  social:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Draft social posts from the latest published post
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          npm install -g @anthropic-ai/claude-code
+          claude -p "$(cat scripts/generate-social.md)" --dangerously-skip-permissions
+
+      - name: Commit the social drafts
+        run: |
+          git config user.name "ProfitPulse Bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add docs/data/social-latest.json
+          git commit -m "Social drafts for latest post" || echo "Nothing to commit"
+          git push

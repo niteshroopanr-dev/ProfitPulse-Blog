@@ -61,9 +61,8 @@ async function loadDraft(date) {
     const post = await (await fetchRaw(`drafts/${date}.json`)).json();
 
     // Optional companion files; ignore if missing.
-    let prompt = "", social = {}, summary = "";
+    let prompt = "", summary = "";
     try { prompt = await (await fetchRaw(`drafts/${date}.prompt.txt`)).text(); } catch {}
-    try { social = await (await fetchRaw(`drafts/${date}.social.json`)).json(); } catch {}
     try { summary = await (await fetchRaw(`drafts/${date}.summary.txt`)).text(); } catch {}
 
     $("summaryLine").textContent =
@@ -74,9 +73,6 @@ async function loadDraft(date) {
     $("excerpt").value = post.excerpt || "";
     $("content").value = post.content || "";
     $("prompt").value = prompt.trim();
-    $("linkedin").value = social.linkedin || "";
-    $("facebook").value = social.facebook || "";
-    $("xpost").value = social.x || "";
 
     // Keep the original faqs and date so they survive publishing.
     $("draftCard").dataset.faqs = JSON.stringify(post.faqs || []);
@@ -90,11 +86,10 @@ async function loadDraft(date) {
   }
 }
 
-// Copy buttons
-document.querySelectorAll(".copy").forEach((btn) => {
+// Copy button for the image prompt (wired at page load; social copy buttons wired after publish)
+$("draftCard").querySelectorAll(".copy").forEach((btn) => {
   btn.onclick = async () => {
-    const el = $(btn.dataset.copy === "xpost" ? "xpost" : btn.dataset.copy);
-    await navigator.clipboard.writeText(el.value);
+    await navigator.clipboard.writeText($(btn.dataset.copy).value);
     const old = btn.textContent;
     btn.textContent = "Copied";
     setTimeout(() => (btn.textContent = old), 1200);
@@ -155,6 +150,41 @@ $("publishBtn").onclick = async () => {
     const data = await res.json();
     if (data.ok) {
       $("publishStatus").textContent = data.message;
+      const publishedTitle = post.title;
+      $("socialPanel").classList.remove("hidden");
+      $("socialStatus").textContent = "Drafting your social posts, this takes a minute or two...";
+      let attempts = 0;
+      const pollTimer = setInterval(async () => {
+        attempts++;
+        try {
+          const sr = await fetch(`${RAW_BASE}/docs/data/social-latest.json?t=${Date.now()}`);
+          if (sr.ok) {
+            const s = await sr.json();
+            if (s.title === publishedTitle) {
+              clearInterval(pollTimer);
+              $("socialStatus").textContent = "";
+              $("li").value = s.linkedin || "";
+              $("fb").value = s.facebook || "";
+              $("gbp").value = s.google || "";
+              $("socialPanel").querySelectorAll(".copy-social").forEach((btn) => {
+                btn.onclick = async () => {
+                  await navigator.clipboard.writeText($(btn.dataset.copy).value);
+                  const old = btn.textContent;
+                  btn.textContent = "Copied";
+                  setTimeout(() => (btn.textContent = old), 1200);
+                };
+              });
+              return;
+            }
+          }
+          // 404 or title mismatch: continue polling
+        } catch {}
+        if (attempts >= 12) {
+          clearInterval(pollTimer);
+          $("socialStatus").textContent =
+            "Your social posts are still being prepared. Reload the page in a minute to see them.";
+        }
+      }, 15000);
     } else {
       $("publishStatus").textContent = `Failed: ${data.error}`;
       btn.disabled = false;
