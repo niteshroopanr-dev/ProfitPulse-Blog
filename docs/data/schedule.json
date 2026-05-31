@@ -36,9 +36,10 @@
           "q": "What is the typical EBITDA multiple for an Australian SME in 2026?",
           "a": "<p>Multiples for Australian owner-led businesses vary considerably by industry, size, and structural quality. Trades and hospitality businesses typically attract two to four times normalised EBITDA. Professional services and technology businesses often achieve four to seven times, sometimes more where recurring revenue is strong. The spread within any sector is large, and structural factors including owner dependence, revenue concentration, and working capital quality typically explain the premium between the top and bottom of the range.</p>"
         }
-      ]
+      ],
+      "publishedAt": "2026-05-31T09:15:00.000Z"
     },
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "scheduledFor": "2026-05-31T09:15:00.000Z",
@@ -77,9 +78,10 @@
           "q": "What is the typical EBITDA multiple for an Australian SME in 2026?",
           "a": "<p>Multiples for Australian owner-led businesses vary considerably by industry, size, and structural quality. Trades and hospitality businesses typically attract two to four times normalised EBITDA. Professional services and technology businesses often achieve four to seven times, sometimes more where recurring revenue is strong. The spread within any sector is large, and structural factors including owner dependence, revenue concentration, and working capital quality typically explain the premium between the top and bottom of the range.</p>"
         }
-      ]
+      ],
+      "publishedAt": "2026-05-31T09:15:00.000Z"
     },
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "scheduledFor": "2026-05-31T09:23:00.000Z",
@@ -118,9 +120,10 @@
           "q": "What is the typical EBITDA multiple for an Australian SME in 2026?",
           "a": "<p>Multiples for Australian owner-led businesses vary considerably by industry, size, and structural quality. Trades and hospitality businesses typically attract two to four times normalised EBITDA. Professional services and technology businesses often achieve four to seven times, sometimes more where recurring revenue is strong. The spread within any sector is large, and structural factors including owner dependence, revenue concentration, and working capital quality typically explain the premium between the top and bottom of the range.</p>"
         }
-      ]
+      ],
+      "publishedAt": "2026-05-31T09:23:00.000Z"
     },
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "scheduledFor": "2026-05-31T09:30:00.000Z",
@@ -159,9 +162,10 @@
           "q": "What is the typical EBITDA multiple for an Australian SME in 2026?",
           "a": "<p>Multiples for Australian owner-led businesses vary considerably by industry, size, and structural quality. Trades and hospitality businesses typically attract two to four times normalised EBITDA. Professional services and technology businesses often achieve four to seven times, sometimes more where recurring revenue is strong. The spread within any sector is large, and structural factors including owner dependence, revenue concentration, and working capital quality typically explain the premium between the top and bottom of the range.</p>"
         }
-      ]
+      ],
+      "publishedAt": "2026-05-31T09:30:00.000Z"
     },
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "scheduledFor": "2026-05-31T10:00:00.000Z",
@@ -200,8 +204,9 @@
           "q": "What is the typical EBITDA multiple for an Australian SME in 2026?",
           "a": "<p>Multiples for Australian owner-led businesses vary considerably by industry, size, and structural quality. Trades and hospitality businesses typically attract two to four times normalised EBITDA. Professional services and technology businesses often achieve four to seven times, sometimes more where recurring revenue is strong. The spread within any sector is large, and structural factors including owner dependence, revenue concentration, and working capital quality typically explain the premium between the top and bottom of the range.</p>"
         }
-      ]
+      ],
+      "publishedAt": "2026-05-31T10:00:00.000Z"
     },
-    "status": "scheduled"
+    "status": "published"
   }
 ]
