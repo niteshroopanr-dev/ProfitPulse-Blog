@@ -31,6 +31,16 @@
   <main id="view-today" class="view">
     <section class="card">
       <div class="row">
+        <button class="ghost" type="button" data-days="2">Generate 2 days</button>
+        <button class="ghost" type="button" data-days="3">Generate 3 days</button>
+        <button class="ghost" type="button" data-days="5">Generate 5 days</button>
+        <button class="ghost" type="button" data-days="7">Generate 7 days</button>
+      </div>
+      <p id="genStatus" class="summary"></p>
+    </section>
+
+    <section class="card">
+      <div class="row">
         <label for="datePicker">Draft date</label>
         <input type="date" id="datePicker" />
         <button id="reloadBtn" class="ghost" type="button">Load</button>

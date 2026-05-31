@@ -49,6 +49,26 @@ function switchTab(which) {
   if (!today) loadAnalytics();
 }
 
+// --- Generate buttons --------------------------------------------------------
+
+document.querySelectorAll("[data-days]").forEach((btn) => {
+  btn.onclick = async () => {
+    const days = btn.dataset.days;
+    $("genStatus").textContent = `Generating ${days} days of drafts. They will appear in a couple of minutes.`;
+    try {
+      const res = await fetch(WORKER_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "generate", days: Number(days) }),
+      });
+      const data = await res.json();
+      $("genStatus").textContent = data.ok ? data.message : `Error: ${data.error}`;
+    } catch (e) {
+      $("genStatus").textContent = `Error: ${e.message}`;
+    }
+  };
+});
+
 // --- TODAY panel -------------------------------------------------------------
 
 function setFieldsReadOnly(readonly) {
