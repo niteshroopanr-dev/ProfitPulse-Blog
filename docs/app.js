@@ -14,6 +14,8 @@ const RAW_BASE =
 // ======================================================
 
 let selectedImageBase64 = null; // set when an image is dropped/chosen
+let editing = false;            // true when the loaded date already has a published post
+let originalTitle = "";         // title as it exists in posts.json, sent to Worker for upsert
 
 // --- small helpers -----------------------------------------------------------
 
@@ -49,40 +51,97 @@ function switchTab(which) {
 
 // --- TODAY panel -------------------------------------------------------------
 
+function setFieldsReadOnly(readonly) {
+  ["title", "category", "excerpt", "content"].forEach((id) => {
+    $(id).readOnly = readonly;
+  });
+}
+
+function brisbaneTime(iso) {
+  return new Intl.DateTimeFormat("en-AU", {
+    timeZone: "Australia/Brisbane",
+    day: "numeric", month: "short", year: "numeric",
+    hour: "numeric", minute: "2-digit",
+  }).format(new Date(iso));
+}
+
 async function loadDraft(date) {
-  $("summaryLine").textContent = `Loading draft for ${date}…`;
+  $("summaryLine").textContent = `Loading for ${date}…`;
   $("draftCard").classList.add("hidden");
   selectedImageBase64 = null;
   $("preview").classList.add("hidden");
-  $("publishBtn").disabled = true;
   $("publishStatus").textContent = "";
+  editing = false;
+  originalTitle = "";
 
+  // Reset UI state for every load
+  $("publishedBadge").classList.add("hidden");
+  $("publishedBadge").textContent = "";
+  $("editBtn").classList.add("hidden");
+  $("publishBtn").disabled = true;
+  $("publishBtn").textContent = "Publish";
+  setFieldsReadOnly(false);
+
+  // Check whether this date already has a published post
+  let publishedPost = null;
   try {
-    const post = await (await fetchRaw(`drafts/${date}.json`)).json();
+    const posts = await (await fetch(`${RAW_BASE}/posts.json?t=${Date.now()}`)).json();
+    publishedPost = posts.find((p) => p.date === date) || null;
+  } catch {}
 
-    // Optional companion files; ignore if missing.
-    let prompt = "", summary = "";
-    try { prompt = await (await fetchRaw(`drafts/${date}.prompt.txt`)).text(); } catch {}
-    try { summary = await (await fetchRaw(`drafts/${date}.summary.txt`)).text(); } catch {}
+  if (publishedPost) {
+    // EDIT MODE — populate from the live post
+    editing = true;
+    originalTitle = publishedPost.title;
+
+    $("title").value = publishedPost.title || "";
+    $("category").value = publishedPost.category || "";
+    $("excerpt").value = publishedPost.excerpt || "";
+    $("content").value = publishedPost.content || "";
+    $("prompt").value = "";
+
+    $("draftCard").dataset.faqs = JSON.stringify(publishedPost.faqs || []);
+    $("draftCard").dataset.date = publishedPost.date || date;
+
+    let badge = "Published " + brisbaneTime(publishedPost.publishedAt || publishedPost.date);
+    if (publishedPost.updatedAt) badge += "  ·  edited " + brisbaneTime(publishedPost.updatedAt);
+    $("publishedBadge").textContent = badge;
+    $("publishedBadge").classList.remove("hidden");
+
+    setFieldsReadOnly(true);
+    $("editBtn").classList.remove("hidden");
+    // publishBtn stays disabled until Edit is clicked
 
     $("summaryLine").textContent =
-      summary.trim() || `Today's draft: ${post.title} (Category: ${post.category})`;
-
-    $("title").value = post.title || "";
-    $("category").value = post.category || "";
-    $("excerpt").value = post.excerpt || "";
-    $("content").value = post.content || "";
-    $("prompt").value = prompt.trim();
-
-    // Keep the original faqs and date so they survive publishing.
-    $("draftCard").dataset.faqs = JSON.stringify(post.faqs || []);
-    $("draftCard").dataset.date = post.date || date;
-
+      `Published: ${publishedPost.title} (Category: ${publishedPost.category})`;
     $("draftCard").classList.remove("hidden");
-  } catch (e) {
-    $("summaryLine").textContent =
-      `No draft found for ${date}. The 3am job may not have run yet, ` +
-      `or you can run it manually from the repo's Actions tab.`;
+  } else {
+    // DRAFT MODE — existing behaviour
+    try {
+      const post = await (await fetchRaw(`drafts/${date}.json`)).json();
+
+      let prompt = "", summary = "";
+      try { prompt = await (await fetchRaw(`drafts/${date}.prompt.txt`)).text(); } catch {}
+      try { summary = await (await fetchRaw(`drafts/${date}.summary.txt`)).text(); } catch {}
+
+      $("summaryLine").textContent =
+        summary.trim() || `Today's draft: ${post.title} (Category: ${post.category})`;
+
+      $("title").value = post.title || "";
+      $("category").value = post.category || "";
+      $("excerpt").value = post.excerpt || "";
+      $("content").value = post.content || "";
+      $("prompt").value = prompt.trim();
+
+      $("draftCard").dataset.faqs = JSON.stringify(post.faqs || []);
+      $("draftCard").dataset.date = post.date || date;
+
+      $("draftCard").classList.remove("hidden");
+    } catch {
+      $("summaryLine").textContent =
+        `No draft found for ${date}. The 3am job may not have run yet, ` +
+        `or you can run it manually from the repo's Actions tab.`;
+    }
   }
 }
 
@@ -95,6 +154,14 @@ $("draftCard").querySelectorAll(".copy").forEach((btn) => {
     setTimeout(() => (btn.textContent = old), 1200);
   };
 });
+
+// Edit button — unlocks fields and enables Save
+$("editBtn").onclick = () => {
+  setFieldsReadOnly(false);
+  $("editBtn").classList.add("hidden");
+  $("publishBtn").textContent = "Save changes";
+  $("publishBtn").disabled = false;
+};
 
 // Image drop zone
 const dz = $("dropzone");
@@ -121,16 +188,16 @@ function handleImage(file) {
   reader.readAsDataURL(file);
 }
 
-// Publish
+// Publish / Save changes
 $("publishBtn").onclick = async () => {
-  if (!selectedImageBase64) return;
+  if (!editing && !selectedImageBase64) return; // image required for new posts only
   if (WORKER_URL.includes("PASTE_YOUR")) {
     $("publishStatus").textContent = "Set WORKER_URL in app.js first.";
     return;
   }
   const btn = $("publishBtn");
   btn.disabled = true;
-  $("publishStatus").textContent = "Publishing…";
+  $("publishStatus").textContent = editing ? "Saving…" : "Publishing…";
 
   const post = {
     date: $("draftCard").dataset.date,
@@ -141,11 +208,15 @@ $("publishBtn").onclick = async () => {
     faqs: JSON.parse($("draftCard").dataset.faqs || "[]"),
   };
 
+  const payload = editing
+    ? { post, originalTitle, ...(selectedImageBase64 ? { imageBase64: selectedImageBase64 } : {}) }
+    : { post, imageBase64: selectedImageBase64 };
+
   try {
     const res = await fetch(WORKER_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ post, imageBase64: selectedImageBase64 }),
+      body: JSON.stringify(payload),
     });
     const data = await res.json();
     if (data.ok) {
