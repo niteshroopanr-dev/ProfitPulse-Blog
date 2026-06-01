@@ -1,63 +1,71 @@
 {
-  "generatedAt": "2026-05-31T15:30:22.690Z",
-  "totalPosts": 23,
+  "generatedAt": "2026-06-01T19:32:14.155Z",
+  "totalPosts": 24,
   "categories": [
     {
       "name": "Cash Flow",
-      "count": 2,
-      "lastDate": "2026-04-30",
-      "daysSinceLast": 32
+      "count": 3,
+      "lastDate": "2026-06-02",
+      "daysSinceLast": 0
     },
     {
       "name": "Profitability",
       "count": 5,
       "lastDate": "2026-05-05",
-      "daysSinceLast": 27
+      "daysSinceLast": 28
     },
     {
       "name": "Valuation & Exit",
       "count": 2,
       "lastDate": "2026-06-01",
-      "daysSinceLast": 0
+      "daysSinceLast": 1
     },
     {
       "name": "Capital & Finance",
       "count": 3,
       "lastDate": "2026-05-11",
-      "daysSinceLast": 21
+      "daysSinceLast": 22
     },
     {
       "name": "Fractional CFO",
       "count": 7,
       "lastDate": "2026-02-13",
-      "daysSinceLast": 108
+      "daysSinceLast": 109
     },
     {
       "name": "Industry Focus",
       "count": 4,
       "lastDate": "2026-05-31",
-      "daysSinceLast": 1
+      "daysSinceLast": 2
     }
   ],
   "repeatedTerms": [
     {
       "term": "cash",
-      "count": 104
-    },
-    {
-      "term": "decisions",
-      "count": 84
+      "count": 141
     },
     {
       "term": "financial",
-      "count": 81
+      "count": 94
+    },
+    {
+      "term": "decisions",
+      "count": 87
+    },
+    {
+      "term": "year",
+      "count": 85
     },
     {
       "term": "work",
-      "count": 78
+      "count": 80
     },
     {
       "term": "where",
+      "count": 77
+    },
+    {
+      "term": "revenue",
       "count": 76
     },
     {
@@ -65,59 +73,63 @@
       "count": 76
     },
     {
-      "term": "revenue",
-      "count": 68
-    },
-    {
       "term": "book",
-      "count": 68
+      "count": 69
     },
     {
-      "term": "year",
-      "count": 64
+      "term": "before",
+      "count": 65
     },
     {
       "term": "time",
-      "count": 60
+      "count": 62
+    },
+    {
+      "term": "often",
+      "count": 61
+    },
+    {
+      "term": "june",
+      "count": 57
+    },
+    {
+      "term": "months",
+      "count": 57
+    },
+    {
+      "term": "small",
+      "count": 55
     },
     {
       "term": "without",
       "count": 55
     },
     {
-      "term": "often",
-      "count": 55
+      "term": "through",
+      "count": 53
     },
     {
       "term": "margin",
       "count": 53
     },
     {
-      "term": "before",
-      "count": 52
-    },
-    {
-      "term": "small",
-      "count": 52
-    },
-    {
       "term": "rhythm",
       "count": 51
+    },
+    {
+      "term": "usually",
+      "count": 50
     },
     {
       "term": "numbers",
       "count": 50
     },
     {
-      "term": "months",
-      "count": 49
+      "term": "between",
+      "count": 44
     },
     {
-      "term": "usually",
-      "count": 49
-    },
-    {
-      "term": "through",
+      "term": "customer",
       "count": 44
     },
     {
@@ -125,20 +137,8 @@
       "count": 44
     },
     {
-      "term": "customer",
-      "count": 43
-    },
-    {
       "term": "review",
       "count": 43
-    },
-    {
-      "term": "valuation",
-      "count": 42
-    },
-    {
-      "term": "health",
-      "count": 42
     }
   ],
   "industries": {
@@ -166,6 +166,10 @@
       {
         "name": "Aged care and disability  providers",
         "count": 1
+      },
+      {
+        "name": "Building and specialist trades",
+        "count": 1
       }
     ],
     "untouched": [
@@ -177,7 +181,6 @@
       "Recruitment and labour hire",
       "Real estate agencies and property management",
       "Property development and construction",
-      "Building and specialist trades",
       "Food and beverage production",
       "Wholesale and distribution",
       "Importers, exporters and customs brokers",
@@ -249,27 +252,31 @@
     },
     {
       "url": "https://profit-pulse.com.au/financial-analysis",
-      "count": 14
+      "count": 16
     },
     {
       "url": "https://profit-pulse.com.au/what-is-a-fractional-cfo%3F-1",
-      "count": 10
+      "count": 11
     },
     {
       "url": "https://profit-pulse.com.au/services",
       "count": 8
     },
     {
+      "url": "https://profit-pulse.com.au/fractional-cfo-brisbane",
+      "count": 6
+    },
+    {
       "url": "https://profit-pulse.com.au/valuation-brisbane-smes",
       "count": 6
     },
     {
-      "url": "https://profit-pulse.com.au/fractional-cfo-brisbane",
+      "url": "https://profit-pulse.com.au/capital-raise-preparation",
       "count": 5
     },
     {
-      "url": "https://profit-pulse.com.au/capital-raise-preparation",
-      "count": 5
+      "url": "https://outlook.office.com/book/ProfitPulse1@profit-pulse.com.au/",
+      "count": 3
     },
     {
       "url": "https://profit-pulse.com.au/capital-raise-brisbane",
@@ -278,10 +285,6 @@
     {
       "url": "https://profit-pulse.com.au/business-valuations-101",
       "count": 3
-    },
-    {
-      "url": "https://outlook.office.com/book/ProfitPulse1@profit-pulse.com.au/",
-      "count": 2
     },
     {
       "url": "https://profit-pulse.com.au/fractional-cfo-costs",
@@ -355,7 +358,7 @@
     },
     {
       "week": "2026-W23",
-      "count": 1
+      "count": 2
     }
   ]
 }

@@ -4,24 +4,19 @@ For reference only, the attached logo consists of three rising bar chart columns
 
 A flat editorial illustration in a refined hand-drawn style for a Brisbane-based financial advisory firm called ProfitPulse.
 
-TITLE TEXT (must appear in the image): "Spend Before June 30? The Cash Timing Calculation Most SME Owners Skip"
+TITLE TEXT (must appear in the image): "Progress Claims, Retention, and the July Cash Wall in Construction"
 Render the title in elegant serif typography, similar to Fraunces or Playfair Display, positioned in the upper portion or upper-left of the composition. The title must be clearly legible against the background. Use cream or off-white colour for the title if the background is dark, or deep navy / charcoal if the background is light.
 
-CONCEPT TO ILLUSTRATE: A thoughtful business owner at a desk reviewing an invoice or purchase order, with a wall calendar nearby showing June 30 circled in the current month, and a second marker or faded receipt on the far right of the calendar representing a later date when the benefit returns. The composition captures the timing gap between cash leaving now and the return arriving much later, conveying the cautionary insight that what looks like a smart decision in June can quietly strain the business in July.
+CONCEPT TO ILLUSTRATE: A site supervisor or builder in calm business attire stands at the edge of a construction site, reviewing a sheaf of financial documents or a progress claim schedule. Behind them, scaffolding and the steel frame of a partially complete commercial building are visible. The figure's posture is deliberate and composed, suggesting someone taking measured stock of the situation rather than reacting under pressure — a person who has the numbers in front of them and is thinking ahead.
 
-VISUAL STYLE: Sophisticated editorial illustration with a hand-drawn quality and subtle paper texture. Choose one of these tonal directions based on the post's mood:
-- Warm and reflective (use this for posts about peace of mind, habits, perspective, slower thinking): cream/off-white background (#f5f0e6) with soft navy figures and champagne gold accents (#c9a96e)
-- Strategic and confident (use this for posts about valuation, profit, decisive action, capital): muted sage green or dusty teal background (#7a9080 to #5a8a8a range) with cream highlights and gold details
-- Cautionary or serious (use this for posts about risk, pitfalls, common mistakes): deep navy background (#1a2940 to #2a3548) with cream figures and gold accents
-
-Use the cautionary or serious tonal direction for this post: deep navy background (#1a2940 to #2a3548) with cream figures and gold accents.
+VISUAL STYLE: Sophisticated editorial illustration with a hand-drawn quality and subtle paper texture. Use the strategic and confident tonal direction: muted sage green or dusty teal background (#7a9080 to #5a8a8a range) with cream highlights and gold details.
 
 Always maintain: soft hand-drawn linework, subtle paper or canvas grain, balanced asymmetric composition, calm and confident editorial mood. The aesthetic should match what you'd see in a sophisticated financial publication aimed at experienced business owners.
 
-COMPOSITION: Single focal scene with one human figure in subtle business attire seated at a desk, examining a purchase document or invoice, with a calendar in the background showing June 30 marked. A faint second date marker further along the calendar suggests the timing gap at the heart of the post. Generous negative space around the title to ensure legibility. The character should feel reflective and careful, not stressed or panicked.
+COMPOSITION: Single focal scene with one human figure in subtle business attire reviewing documents, with construction site elements (scaffolding, steel frame, partially complete structure) visible in the background. Generous negative space around the title to ensure legibility. The character should feel reflective and in control, never overtly cheerful or stock-photo-like.
 
 FORMAT: 16:10 aspect ratio (landscape), high resolution, suitable for use at 1200 pixels wide as a blog hero image.
 
 LOGO PLACEMENT: Use the attached logo file exactly as described in the IMPORTANT note at the top of this prompt. Do not recreate or restyle it.
 
-EXCLUDE: cartoon style, photorealism, neon colours, sharp digital gradients, stock photography aesthetics, generic AI illustration tropes, 3D rendered look, multiple competing focal points, watermarks, logos other than the ProfitPulse wordmark specified above, additional text beyond the title and the logo.
+EXCLUDE: cartoon style, photorealism, neon colours, sharp digital gradients, stock photography aesthetics, generic AI illustration tropes, 3D rendered look, multiple competing focal points, watermarks, logos other than the ProfitPulse wordmark specified above, additional text beyond the title and the logo, hard hats or high-visibility vests (keep the figure in calm business attire), any sense of stress or emergency.
