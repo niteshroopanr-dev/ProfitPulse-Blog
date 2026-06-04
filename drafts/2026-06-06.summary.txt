@@ -1,0 +1,5 @@
+Today's draft: Retentions, WIP, and the Cash Crunch That Hits Australian Builders Every July (Category: Industry Focus)
+
+June 6 is a Saturday, which requires an Industry Focus post per operating rules; construction and trades has no standalone post in the archive, and the EOFY retentions and WIP cash timing mechanism is a commercially specific angle that does not overlap with any existing post.
+
+Note: today's date per the job prompt is 2026-06-05, but a post dated 2026-06-05 (Solar Installers) is already published in posts.json and a draft exists in drafts/. This content pack uses the date 2026-06-06 to avoid a date collision and to follow the apparent publishing pattern where each automated run produces the following day's draft.

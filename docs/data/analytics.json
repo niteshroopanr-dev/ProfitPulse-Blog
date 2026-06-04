@@ -1,72 +1,84 @@
 {
-  "generatedAt": "2026-06-03T18:29:11.848Z",
-  "totalPosts": 25,
+  "generatedAt": "2026-06-04T17:23:50.067Z",
+  "totalPosts": 27,
   "categories": [
     {
       "name": "Cash Flow",
       "count": 3,
       "lastDate": "2026-06-02",
-      "daysSinceLast": 2
+      "daysSinceLast": 3
     },
     {
       "name": "Profitability",
       "count": 6,
       "lastDate": "2026-06-03",
-      "daysSinceLast": 1
+      "daysSinceLast": 2
     },
     {
       "name": "Valuation & Exit",
       "count": 2,
       "lastDate": "2026-06-01",
-      "daysSinceLast": 3
+      "daysSinceLast": 4
     },
     {
       "name": "Capital & Finance",
-      "count": 3,
-      "lastDate": "2026-05-11",
-      "daysSinceLast": 24
+      "count": 4,
+      "lastDate": "2026-06-04",
+      "daysSinceLast": 1
     },
     {
       "name": "Fractional CFO",
       "count": 7,
       "lastDate": "2026-02-13",
-      "daysSinceLast": 111
+      "daysSinceLast": 112
     },
     {
       "name": "Industry Focus",
-      "count": 4,
-      "lastDate": "2026-05-31",
-      "daysSinceLast": 4
+      "count": 5,
+      "lastDate": "2026-06-05",
+      "daysSinceLast": 0
     }
   ],
   "repeatedTerms": [
     {
       "term": "cash",
-      "count": 142
+      "count": 161
     },
     {
       "term": "revenue",
-      "count": 105
+      "count": 124
     },
     {
       "term": "year",
-      "count": 97
+      "count": 112
     },
     {
       "term": "financial",
-      "count": 96
+      "count": 111
     },
     {
       "term": "decisions",
-      "count": 94
-    },
-    {
-      "term": "work",
-      "count": 85
+      "count": 98
     },
     {
       "term": "where",
-      "count": 80
+      "count": 93
+    },
+    {
+      "term": "june",
+      "count": 92
+    },
+    {
+      "term": "work",
+      "count": 91
+    },
+    {
+      "term": "before",
+      "count": 85
+    },
+    {
+      "term": "margin",
+      "count": 78
     },
     {
       "term": "practice",
@@ -74,71 +86,59 @@
     },
     {
       "term": "book",
-      "count": 70
-    },
-    {
-      "term": "before",
-      "count": 69
+      "count": 73
     },
     {
       "term": "time",
-      "count": 69
-    },
-    {
-      "term": "margin",
-      "count": 68
-    },
-    {
-      "term": "june",
-      "count": 64
+      "count": 73
     },
     {
       "term": "often",
-      "count": 64
+      "count": 66
     },
     {
       "term": "months",
-      "count": 60
+      "count": 63
     },
     {
       "term": "without",
-      "count": 57
+      "count": 61
+    },
+    {
+      "term": "review",
+      "count": 60
     },
     {
       "term": "small",
+      "count": 58
+    },
+    {
+      "term": "through",
+      "count": 57
+    },
+    {
+      "term": "cost",
       "count": 57
     },
     {
       "term": "customer",
-      "count": 56
-    },
-    {
-      "term": "through",
-      "count": 54
+      "count": 57
     },
     {
       "term": "usually",
+      "count": 53
+    },
+    {
+      "term": "capital",
       "count": 52
     },
     {
       "term": "numbers",
-      "count": 51
+      "count": 52
     },
     {
       "term": "rhythm",
       "count": 51
-    },
-    {
-      "term": "review",
-      "count": 48
-    },
-    {
-      "term": "cost",
-      "count": 46
-    },
-    {
-      "term": "between",
-      "count": 45
     }
   ],
   "industries": {
@@ -205,7 +205,16 @@
     ]
   },
   "services": {
-    "referenced": [],
+    "referenced": [
+      {
+        "name": "Exit Readiness Diagnostic",
+        "count": 2
+      },
+      {
+        "name": "Working Capital Unlock",
+        "count": 1
+      }
+    ],
     "untouched": [
       "Profit Pulse Check",
       "Profit & Cash Diagnostic",
@@ -216,7 +225,6 @@
       "Fractional CFO Partnership",
       "Fractional CFO Capital Markets Add-on",
       "13-Week Cash Flow Build",
-      "Working Capital Unlock",
       "Debtor & Collections Reset",
       "Supplier & Payables Optimisation",
       "Banking & Facility Review",
@@ -229,7 +237,6 @@
       "Indicative Business Valuation",
       "Comprehensive Business Valuation",
       "Value Uplift Roadmap",
-      "Exit Readiness Diagnostic",
       "Exit Preparation Program (12 to 24 months)",
       "Vendor Due Diligence Pack",
       "Capital Raise Feasibility",
@@ -243,16 +250,16 @@
   },
   "linkTargets": [
     {
+      "url": "https://profit-pulse.com.au/financial-analysis",
+      "count": 24
+    },
+    {
       "url": "https://outlook.office.com/book/ProfitPulse1@profit-pulse.com.au/?ismsaljsauthenabled=true",
       "count": 20
     },
     {
       "url": "https://profit-pulse.com.au/book",
       "count": 19
-    },
-    {
-      "url": "https://profit-pulse.com.au/financial-analysis",
-      "count": 18
     },
     {
       "url": "https://profit-pulse.com.au/what-is-a-fractional-cfo%3F-1",
@@ -263,23 +270,27 @@
       "count": 9
     },
     {
-      "url": "https://profit-pulse.com.au/fractional-cfo-brisbane",
-      "count": 6
+      "url": "https://profit-pulse.com.au/valuation-brisbane-smes",
+      "count": 7
     },
     {
-      "url": "https://profit-pulse.com.au/valuation-brisbane-smes",
+      "url": "https://profit-pulse.com.au/fractional-cfo-brisbane",
+      "count": 7
+    },
+    {
+      "url": "https://outlook.office.com/book/ProfitPulse1@profit-pulse.com.au/",
       "count": 6
     },
     {
       "url": "https://profit-pulse.com.au/capital-raise-preparation",
-      "count": 5
-    },
-    {
-      "url": "https://outlook.office.com/book/ProfitPulse1@profit-pulse.com.au/",
-      "count": 4
+      "count": 6
     },
     {
       "url": "https://profit-pulse.com.au/capital-raise-brisbane",
+      "count": 4
+    },
+    {
+      "url": "https://profit-pulse.com.au/exit-readiness-brisbane",
       "count": 3
     },
     {
@@ -293,10 +304,6 @@
     {
       "url": "https://profit-pulse.com.au/exit-readiness-101",
       "count": 2
-    },
-    {
-      "url": "https://profit-pulse.com.au/exit-readiness-brisbane",
-      "count": 1
     }
   ],
   "postsPerWeek": [
@@ -358,7 +365,7 @@
     },
     {
       "week": "2026-W23",
-      "count": 3
+      "count": 5
     }
   ]
 }
