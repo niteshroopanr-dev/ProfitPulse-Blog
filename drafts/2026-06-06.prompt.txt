@@ -4,21 +4,21 @@ For reference only, the attached logo consists of three rising bar chart columns
 
 A flat editorial illustration in a refined hand-drawn style for a Brisbane-based financial advisory firm called ProfitPulse.
 
-TITLE TEXT (must appear in the image): "Retentions, WIP, and the Cash Crunch That Hits Australian Builders Every July"
+TITLE TEXT (must appear in the image): "The July Occupancy Drop That Every Childcare Centre Owner Needs to Plan For"
 Render the title in elegant serif typography, similar to Fraunces or Playfair Display, positioned in the upper portion or upper-left of the composition. The title must be clearly legible against the background. Use cream or off-white colour for the title if the background is dark, or deep navy / charcoal if the background is light.
 
-CONCEPT TO ILLUSTRATE: A trades business owner at a site office desk, reviewing a balance sheet or cash flow document where retention receivables and WIP figures are visible alongside a calendar showing the July period. The illustration conveys the gap between a strong financial year-end on paper and the working capital constraints that arrive in the weeks that follow.
+CONCEPT TO ILLUSTRATE: A childcare centre administrator or owner sits at a desk with a forward-looking occupancy chart visible, showing a strong June followed by a visible July dip and a gradual August recovery. Small symbolic childcare details — a few miniature chairs or a simple activity table — are rendered in the background in the same editorial hand-drawn style, conveying the sector without a literal classroom scene. The mood is calm and purposeful: a business owner who has seen this pattern before and is planning ahead.
 
 VISUAL STYLE: Sophisticated editorial illustration with a hand-drawn quality and subtle paper texture. Choose one of these tonal directions based on the post's mood:
 - Warm and reflective (use this for posts about peace of mind, habits, perspective, slower thinking): cream/off-white background (#f5f0e6) with soft navy figures and champagne gold accents (#c9a96e)
 - Strategic and confident (use this for posts about valuation, profit, decisive action, capital): muted sage green or dusty teal background (#7a9080 to #5a8a8a range) with cream highlights and gold details
 - Cautionary or serious (use this for posts about risk, pitfalls, common mistakes): deep navy background (#1a2940 to #2a3548) with cream figures and gold accents
 
-Use the cautionary or serious tonal direction for this post: deep navy background (#1a2940 to #2a3548) with cream figures and gold accents.
+Use the strategic and confident tonal direction for this post: muted sage green or dusty teal background (#7a9080 to #5a8a8a range) with cream highlights and gold details.
 
 Always maintain: soft hand-drawn linework, subtle paper or canvas grain, balanced asymmetric composition, calm and confident editorial mood. The aesthetic should match what you'd see in a sophisticated financial publication aimed at experienced business owners.
 
-COMPOSITION: Single focal scene with either one human figure in subtle business attire OR one to two symbolic objects that visually represent the concept. Generous negative space around the title to ensure legibility. The character (if used) should feel reflective or thoughtful, never overtly cheerful or stock-photo-like.
+COMPOSITION: Single focal scene with one human figure in subtle business attire seated at a desk reviewing financial documents or an occupancy chart. Generous negative space around the title to ensure legibility. The character should feel reflective or thoughtful, calm and forward-looking rather than stressed, never overtly cheerful or stock-photo-like.
 
 FORMAT: 16:10 aspect ratio (landscape), high resolution, suitable for use at 1200 pixels wide as a blog hero image.
 
