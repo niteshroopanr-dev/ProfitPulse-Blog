@@ -1,194 +1,203 @@
 {
-  "generatedAt": "2026-06-14T16:01:20.158Z",
-  "totalPosts": 27,
+  "generatedAt": "2026-06-15T18:20:09.914Z",
+  "totalPosts": 37,
   "categories": [
     {
       "name": "Cash Flow",
-      "count": 3,
-      "lastDate": "2026-06-02",
-      "daysSinceLast": 13
+      "count": 4,
+      "lastDate": "2026-06-08",
+      "daysSinceLast": 8
     },
     {
       "name": "Profitability",
-      "count": 6,
-      "lastDate": "2026-06-03",
-      "daysSinceLast": 12
+      "count": 7,
+      "lastDate": "2026-06-10",
+      "daysSinceLast": 6
     },
     {
       "name": "Valuation & Exit",
-      "count": 2,
-      "lastDate": "2026-06-01",
-      "daysSinceLast": 14
+      "count": 3,
+      "lastDate": "2026-06-09",
+      "daysSinceLast": 7
     },
     {
       "name": "Capital & Finance",
-      "count": 4,
-      "lastDate": "2026-06-04",
-      "daysSinceLast": 11
+      "count": 5,
+      "lastDate": "2026-06-15",
+      "daysSinceLast": 1
     },
     {
       "name": "Fractional CFO",
       "count": 7,
       "lastDate": "2026-02-13",
-      "daysSinceLast": 122
+      "daysSinceLast": 123
     },
     {
       "name": "Industry Focus",
-      "count": 5,
-      "lastDate": "2026-06-05",
-      "daysSinceLast": 10
+      "count": 11,
+      "lastDate": "2026-06-14",
+      "daysSinceLast": 2
     }
   ],
   "repeatedTerms": [
     {
-      "term": "cash",
-      "count": 161
+      "term": "revenue",
+      "count": 242
     },
     {
-      "term": "revenue",
-      "count": 124
+      "term": "cash",
+      "count": 209
     },
     {
       "term": "year",
-      "count": 112
+      "count": 202
     },
     {
       "term": "financial",
-      "count": 111
-    },
-    {
-      "term": "decisions",
-      "count": 98
-    },
-    {
-      "term": "where",
-      "count": 93
-    },
-    {
-      "term": "june",
-      "count": 92
-    },
-    {
-      "term": "work",
-      "count": 91
-    },
-    {
-      "term": "before",
-      "count": 85
+      "count": 193
     },
     {
       "term": "margin",
-      "count": 78
+      "count": 175
     },
     {
-      "term": "practice",
-      "count": 76
+      "term": "june",
+      "count": 155
     },
     {
-      "term": "book",
-      "count": 73
+      "term": "before",
+      "count": 154
     },
     {
-      "term": "time",
-      "count": 73
+      "term": "work",
+      "count": 149
     },
     {
-      "term": "often",
-      "count": 66
-    },
-    {
-      "term": "months",
-      "count": 63
-    },
-    {
-      "term": "without",
-      "count": 61
-    },
-    {
-      "term": "review",
-      "count": 60
-    },
-    {
-      "term": "small",
-      "count": 58
-    },
-    {
-      "term": "through",
-      "count": 57
+      "term": "where",
+      "count": 133
     },
     {
       "term": "cost",
-      "count": 57
+      "count": 125
     },
     {
-      "term": "customer",
-      "count": 57
+      "term": "july",
+      "count": 115
     },
     {
-      "term": "usually",
-      "count": 53
+      "term": "time",
+      "count": 114
+    },
+    {
+      "term": "decisions",
+      "count": 110
+    },
+    {
+      "term": "across",
+      "count": 101
+    },
+    {
+      "term": "practice",
+      "count": 101
     },
     {
       "term": "capital",
-      "count": 52
+      "count": 94
     },
     {
-      "term": "numbers",
-      "count": 52
+      "term": "through",
+      "count": 89
     },
     {
-      "term": "rhythm",
-      "count": 51
+      "term": "book",
+      "count": 89
+    },
+    {
+      "term": "months",
+      "count": 88
+    },
+    {
+      "term": "review",
+      "count": 86
+    },
+    {
+      "term": "pricing",
+      "count": 86
+    },
+    {
+      "term": "without",
+      "count": 83
+    },
+    {
+      "term": "eofy",
+      "count": 83
+    },
+    {
+      "term": "often",
+      "count": 82
+    },
+    {
+      "term": "rather",
+      "count": 81
     }
   ],
   "industries": {
     "covered": [
       {
         "name": "Allied health and medical practices",
-        "count": 26
-      },
-      {
-        "name": "Professional services",
-        "count": 11
+        "count": 30
       },
       {
         "name": "Hospitality",
-        "count": 11
+        "count": 16
+      },
+      {
+        "name": "Professional services",
+        "count": 14
       },
       {
         "name": "Retail",
-        "count": 6
-      },
-      {
-        "name": "Manufacturing",
-        "count": 3
+        "count": 11
       },
       {
         "name": "Building and specialist trades",
-        "count": 2
+        "count": 5
       },
       {
         "name": "Aged care and disability  providers",
+        "count": 4
+      },
+      {
+        "name": "Manufacturing",
+        "count": 4
+      },
+      {
+        "name": "Childcare and education providers",
+        "count": 3
+      },
+      {
+        "name": "Veterinary practices",
+        "count": 2
+      },
+      {
+        "name": "Food and beverage production",
         "count": 1
       }
     ],
     "untouched": [
       "Dental and specialist clinics",
-      "Veterinary practices",
       "Engineering and architecture consultancies",
       "Management and IT consulting",
       "Marketing, creative and media agencies",
       "Recruitment and labour hire",
       "Real estate agencies and property management",
       "Property development and construction",
-      "Food and beverage production",
       "Wholesale and distribution",
       "Importers, exporters and customs brokers",
       "Mining services contractors",
       "Transport, logistics and freight",
       "E-commerce and online retail",
       "Accommodation and tourism operators",
-      "Childcare and education providers",
       "Private schools and registered training organisations",
       "Fitness, wellness and personal services",
       "Agriculture and primary production",
@@ -208,10 +217,26 @@
     "referenced": [
       {
         "name": "Exit Readiness Diagnostic",
-        "count": 2
+        "count": 11
       },
       {
         "name": "Working Capital Unlock",
+        "count": 4
+      },
+      {
+        "name": "Value Uplift Roadmap",
+        "count": 4
+      },
+      {
+        "name": "Indicative Business Valuation",
+        "count": 2
+      },
+      {
+        "name": "Capital Raise Feasibility",
+        "count": 2
+      },
+      {
+        "name": "Pricing Reset",
         "count": 1
       }
     ],
@@ -230,16 +255,12 @@
       "Banking & Facility Review",
       "Treasury & FX Setup",
       "Cost & Margin Deep Dive",
-      "Pricing Reset",
       "KPI Dashboard Build & Run",
       "Budgeting & Forecasting Setup",
       "Annual Plan & Board Pack",
-      "Indicative Business Valuation",
       "Comprehensive Business Valuation",
-      "Value Uplift Roadmap",
       "Exit Preparation Program (12 to 24 months)",
       "Vendor Due Diligence Pack",
-      "Capital Raise Feasibility",
       "Information Memorandum & Pitch Pack",
       "Acquisition Support",
       "Operational Intelligence Review",
@@ -251,7 +272,7 @@
   "linkTargets": [
     {
       "url": "https://profit-pulse.com.au/financial-analysis",
-      "count": 24
+      "count": 45
     },
     {
       "url": "https://outlook.office.com/book/ProfitPulse1@profit-pulse.com.au/?ismsaljsauthenabled=true",
@@ -262,27 +283,35 @@
       "count": 19
     },
     {
+      "url": "https://outlook.office.com/book/ProfitPulse1@profit-pulse.com.au/",
+      "count": 16
+    },
+    {
+      "url": "https://profit-pulse.com.au/valuation-brisbane-smes",
+      "count": 15
+    },
+    {
+      "url": "https://profit-pulse.com.au/fractional-cfo-brisbane",
+      "count": 13
+    },
+    {
+      "url": "https://profit-pulse.com.au/exit-readiness-brisbane",
+      "count": 12
+    },
+    {
       "url": "https://profit-pulse.com.au/what-is-a-fractional-cfo%3F-1",
       "count": 12
+    },
+    {
+      "url": "https://profit-pulse.com.au/capital-raise-preparation",
+      "count": 10
     },
     {
       "url": "https://profit-pulse.com.au/services",
       "count": 9
     },
     {
-      "url": "https://profit-pulse.com.au/valuation-brisbane-smes",
-      "count": 7
-    },
-    {
-      "url": "https://profit-pulse.com.au/fractional-cfo-brisbane",
-      "count": 7
-    },
-    {
-      "url": "https://outlook.office.com/book/ProfitPulse1@profit-pulse.com.au/",
-      "count": 6
-    },
-    {
-      "url": "https://profit-pulse.com.au/capital-raise-preparation",
+      "url": "https://profit-pulse.com.au/business-valuations-101",
       "count": 6
     },
     {
@@ -290,16 +319,8 @@
       "count": 4
     },
     {
-      "url": "https://profit-pulse.com.au/exit-readiness-brisbane",
-      "count": 3
-    },
-    {
-      "url": "https://profit-pulse.com.au/business-valuations-101",
-      "count": 3
-    },
-    {
       "url": "https://profit-pulse.com.au/fractional-cfo-costs",
-      "count": 2
+      "count": 3
     },
     {
       "url": "https://profit-pulse.com.au/exit-readiness-101",
@@ -365,7 +386,15 @@
     },
     {
       "week": "2026-W23",
-      "count": 5
+      "count": 7
+    },
+    {
+      "week": "2026-W24",
+      "count": 7
+    },
+    {
+      "week": "2026-W25",
+      "count": 1
     }
   ]
 }
