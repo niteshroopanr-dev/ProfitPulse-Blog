@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-06-15T18:20:09.914Z",
-  "totalPosts": 37,
+  "generatedAt": "2026-06-16T11:04:59.746Z",
+  "totalPosts": 38,
   "categories": [
     {
       "name": "Cash Flow",
-      "count": 4,
-      "lastDate": "2026-06-08",
-      "daysSinceLast": 8
+      "count": 5,
+      "lastDate": "2026-06-16",
+      "daysSinceLast": 0
     },
     {
       "name": "Profitability",
@@ -42,19 +42,19 @@
   "repeatedTerms": [
     {
       "term": "revenue",
-      "count": 242
+      "count": 253
     },
     {
       "term": "cash",
-      "count": 209
+      "count": 224
     },
     {
       "term": "year",
-      "count": 202
+      "count": 212
     },
     {
       "term": "financial",
-      "count": 193
+      "count": 201
     },
     {
       "term": "margin",
@@ -62,19 +62,19 @@
     },
     {
       "term": "june",
-      "count": 155
+      "count": 164
     },
     {
       "term": "before",
-      "count": 154
+      "count": 164
     },
     {
       "term": "work",
-      "count": 149
+      "count": 153
     },
     {
       "term": "where",
-      "count": 133
+      "count": 138
     },
     {
       "term": "cost",
@@ -82,11 +82,11 @@
     },
     {
       "term": "july",
-      "count": 115
+      "count": 121
     },
     {
       "term": "time",
-      "count": 114
+      "count": 117
     },
     {
       "term": "decisions",
@@ -94,23 +94,27 @@
     },
     {
       "term": "across",
-      "count": 101
+      "count": 106
     },
     {
       "term": "practice",
-      "count": 101
+      "count": 102
     },
     {
       "term": "capital",
-      "count": 94
+      "count": 101
     },
     {
       "term": "through",
-      "count": 89
+      "count": 90
+    },
+    {
+      "term": "rather",
+      "count": 90
     },
     {
       "term": "book",
-      "count": 89
+      "count": 90
     },
     {
       "term": "months",
@@ -126,19 +130,15 @@
     },
     {
       "term": "without",
-      "count": 83
+      "count": 85
+    },
+    {
+      "term": "often",
+      "count": 84
     },
     {
       "term": "eofy",
       "count": 83
-    },
-    {
-      "term": "often",
-      "count": 82
-    },
-    {
-      "term": "rather",
-      "count": 81
     }
   ],
   "industries": {
@@ -157,7 +157,7 @@
       },
       {
         "name": "Retail",
-        "count": 11
+        "count": 12
       },
       {
         "name": "Building and specialist trades",
@@ -221,7 +221,7 @@
       },
       {
         "name": "Working Capital Unlock",
-        "count": 4
+        "count": 8
       },
       {
         "name": "Value Uplift Roadmap",
@@ -272,7 +272,7 @@
   "linkTargets": [
     {
       "url": "https://profit-pulse.com.au/financial-analysis",
-      "count": 45
+      "count": 48
     },
     {
       "url": "https://outlook.office.com/book/ProfitPulse1@profit-pulse.com.au/?ismsaljsauthenabled=true",
@@ -284,7 +284,7 @@
     },
     {
       "url": "https://outlook.office.com/book/ProfitPulse1@profit-pulse.com.au/",
-      "count": 16
+      "count": 17
     },
     {
       "url": "https://profit-pulse.com.au/valuation-brisbane-smes",
@@ -292,7 +292,7 @@
     },
     {
       "url": "https://profit-pulse.com.au/fractional-cfo-brisbane",
-      "count": 13
+      "count": 14
     },
     {
       "url": "https://profit-pulse.com.au/exit-readiness-brisbane",
@@ -394,7 +394,7 @@
     },
     {
       "week": "2026-W25",
-      "count": 1
+      "count": 2
     }
   ]
 }
