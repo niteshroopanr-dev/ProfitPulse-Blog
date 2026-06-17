@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T18:46:04.076Z",
+  "generatedAt": "2026-06-17T05:43:24.788Z",
   "totalPosts": 39,
   "categories": [
     {
@@ -15,16 +15,16 @@
       "daysSinceLast": 0
     },
     {
-      "name": "Valuation & Exit",
-      "count": 3,
-      "lastDate": "2026-06-09",
-      "daysSinceLast": 8
+      "name": "Valuation and Exit",
+      "count": 0,
+      "lastDate": null,
+      "daysSinceLast": null
     },
     {
-      "name": "Capital & Finance",
-      "count": 5,
-      "lastDate": "2026-06-15",
-      "daysSinceLast": 2
+      "name": "Capital and Finance",
+      "count": 0,
+      "lastDate": null,
+      "daysSinceLast": null
     },
     {
       "name": "Fractional CFO",
