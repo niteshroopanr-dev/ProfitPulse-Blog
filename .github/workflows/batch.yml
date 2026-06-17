@@ -37,6 +37,9 @@ jobs:
       - name: Install Claude Code
         run: npm install -g @anthropic-ai/claude-code
 
+      - name: Sync posts.json from WordPress
+        run: node scripts/sync-posts.mjs
+
       - name: Generate drafts in order
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -60,6 +63,6 @@ jobs:
         run: |
           git config user.name "ProfitPulse Bot"
           git config user.email "bot@users.noreply.github.com"
-          git add drafts/ docs/data/
+          git add drafts/ docs/data/ posts.json
           git commit -m "Batch drafts" || echo "Nothing to commit"
           git push

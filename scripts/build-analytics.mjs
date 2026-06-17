@@ -18,8 +18,8 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 const CATEGORIES = [
   "Cash Flow",
   "Profitability",
-  "Valuation & Exit",
-  "Capital & Finance",
+  "Valuation and Exit",
+  "Capital and Finance",
   "Fractional CFO",
   "Industry Focus",
 ];
@@ -50,9 +50,14 @@ function readText(path) {
   return existsSync(path) ? readFileSync(path, "utf8") : "";
 }
 
-// Strip HTML tags so we count words, not markup.
+// Strip HTML tags so we count words, not markup. Script and style blocks
+// (including the injected JSON-LD) are removed first so their contents are
+// never counted as post wording.
 function stripHtml(html) {
-  return (html || "").replace(/<[^>]+>/g, " ");
+  return (html || "")
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ");
 }
 
 // Brisbane "today", used for the days-since-last-post numbers.
@@ -204,7 +209,12 @@ for (const p of posts) {
   let m;
   while ((m = hrefRe.exec(blob)) !== null) {
     const url = m[1];
-    if (!url.includes("profit-pulse.com.au") && !url.includes("outlook.office.com")) continue;
+    const internal =
+      url.startsWith("/") ||
+      url.includes("profit-pulse.com.au") ||
+      url.includes("magenta-raccoon-583639.hostingersite.com");
+    const booking = url.includes("outlook.office.com");
+    if (!internal && !booking) continue;
     linkCounts.set(url, (linkCounts.get(url) || 0) + 1);
   }
 }

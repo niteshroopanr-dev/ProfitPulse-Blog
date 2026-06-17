@@ -46,8 +46,43 @@ if it does not exist.
        Today's draft: <title> (Category: <category>)
      followed by one sentence explaining why you chose this angle.
 
-Write only those three files. Do not modify posts.json, the brain files, or
+  d) drafts/<date>.social.json
+     The social drafts for this post, drawn from the post you just wrote, in
+     this shape:
+       {
+         "date": "<date>",
+         "title": "<the post title, copied exactly>",
+         "generatedAt": "<current date and time in ISO form>",
+         "linkedin": "...",
+         "facebook": "...",
+         "google": "..."
+       }
+     Draw on a real, specific insight from the post, not generic filler. Keep
+     every channel link free in the body. The live post link is added by hand
+     after publishing, in the first comment on LinkedIn, at the end of the
+     Facebook post, and on the button of the Google update.
+
+     LinkedIn, 1200 to 1700 characters: a hook in the first two lines that
+     lands before the "see more" cut off, then one specific insight from the
+     post, with a line break every two or three sentences. End with the line
+     "Full piece on the ProfitPulse blog." and three relevant hashtags chosen
+     from #FractionalCFO #BusinessValuation #CashFlow #ProfitabilityAdvice
+     #AustralianBusiness #BrisbaneSME #SMEFinance #BusinessOwners
+     #FinancialStrategy.
+
+     Facebook, 500 to 800 characters: lighter and more conversational than
+     LinkedIn but still on brand, with one specific question or observation
+     that invites a reply, no link in the body, and one or two hashtags at
+     most.
+
+     Google, a Google Business Profile update of 150 to 300 words: written as
+     a local business update for owner led SMEs on the east coast (Brisbane,
+     Queensland, New South Wales, Victoria), plain and useful, with no hashtags
+     and one clear call to action at the end pointing readers to the blog. No
+     link in the body.
+
+Write only those four files. Do not modify posts.json, the brain files, or
 anything in docs/. Do not invent statistics. If you genuinely cannot find a
-fresh, non-duplicative angle, still write the three files but use the summary
+fresh, non-duplicative angle, still write the four files but use the summary
 line to flag that the angles are close to existing posts and name two
 alternatives you would prefer.

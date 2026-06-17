@@ -2,20 +2,26 @@
 // app.js  —  the dashboard logic
 //
 // Plain JavaScript, no framework. Three jobs:
-//   1. Load today's draft files and fill the Today panel.
+//   1. Load a date's draft files (post, prompt, summary, social) and fill the Today panel.
 //   2. Load analytics.json and draw the charts.
-//   3. On Publish, send the edited post and the image to the Cloudflare Worker.
+//   3. On Publish, send the edited post and the image to the WordPress publisher Worker.
 // ---------------------------------------------------------------------------
 
-// ===== CONFIG: the only two lines you need to set =====
-const WORKER_URL = "https://yellow-cloud-5dd8profitpulse-publish.nitesh-roopa-nr.workers.dev/";
+// ===== CONFIG: set these for your environment =====
+// Draft generation still runs on the original generation worker.
+const GEN_URL = "https://yellow-cloud-5dd8profitpulse-publish.nitesh-roopa-nr.workers.dev/";
+// Publishing now creates real WordPress posts via the publisher worker.
+const PUBLISH_URL = "https://profitpulse-blog-publisher.nitesh-roopa-nr.workers.dev/";
+// The live WordPress site. Used to detect already-published posts and to open the editor.
+// CHANGE THIS to https://profit-pulse.com.au when the site moves to the real domain.
+const WP_BASE = "https://magenta-raccoon-583639.hostingersite.com";
+// The GitHub repo that holds the generated drafts.
 const RAW_BASE =
   "https://raw.githubusercontent.com/niteshroopanr-dev/ProfitPulse-Blog/main";
-// ======================================================
+// ==================================================
 
 let selectedImageBase64 = null; // set when an image is dropped/chosen
-let editing = false;            // true when the loaded date already has a published post
-let originalTitle = "";         // title as it exists in posts.json, sent to Worker for upsert
+let publishedPostId = null;     // WordPress post id, if this date is already live
 
 // --- small helpers -----------------------------------------------------------
 
@@ -28,11 +34,35 @@ function brisbaneToday() {
   }).format(new Date()); // YYYY-MM-DD
 }
 
+// Mirror of the Worker's slug rule, so the tool can find a post in WordPress by title.
+function slugify(s) {
+  return String(s || "")
+    .toLowerCase()
+    .replace(/[\u2018\u2019']/g, "")
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 // Fetch a repo file, adding a timestamp so we never see a stale cached copy.
 async function fetchRaw(path) {
   const res = await fetch(`${RAW_BASE}/${path}?t=${Date.now()}`);
   if (!res.ok) throw new Error(`${path} not found`);
   return res;
+}
+
+// Ask WordPress whether a post with this slug is already published.
+async function findPublished(slug) {
+  try {
+    const res = await fetch(
+      `${WP_BASE}/wp-json/wp/v2/posts?slug=${encodeURIComponent(slug)}&_fields=id,link`
+    );
+    if (!res.ok) return null;
+    const arr = await res.json();
+    return Array.isArray(arr) && arr[0] ? arr[0] : null;
+  } catch {
+    return null;
+  }
 }
 
 // --- tab switching -----------------------------------------------------------
@@ -56,7 +86,7 @@ document.querySelectorAll("[data-days]").forEach((btn) => {
     const days = btn.dataset.days;
     $("genStatus").textContent = `Generating ${days} days of drafts. They will appear in a couple of minutes.`;
     try {
-      const res = await fetch(WORKER_URL, {
+      const res = await fetch(GEN_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ action: "generate", days: Number(days) }),
@@ -77,110 +107,138 @@ function setFieldsReadOnly(readonly) {
   });
 }
 
-function brisbaneTime(iso) {
-  return new Intl.DateTimeFormat("en-AU", {
-    timeZone: "Australia/Brisbane",
-    day: "numeric", month: "short", year: "numeric",
-    hour: "numeric", minute: "2-digit",
-  }).format(new Date(iso));
+// Load and show the social drafts for this post.
+// Each post is now generated with its own dated file at drafts/<date>.social.json,
+// which is the same on every device and is never overwritten by a later post.
+// The single docs/data/social-latest.json file (written by the manual social
+// workflow) and a copy kept in this browser are used as fallbacks.
+async function loadSocial(date, postTitle) {
+  $("li").value = "";
+  $("fb").value = "";
+  $("gbp").value = "";
+  $("socialPanel").classList.add("hidden");
+  $("socialStatus").textContent = "";
+  if (!date) return;
+
+  const key = "pp-social-" + date;
+
+  function save(s) {
+    try {
+      localStorage.setItem(key, JSON.stringify({
+        title: s.title || postTitle || "",
+        linkedin: s.linkedin || "",
+        facebook: s.facebook || "",
+        google: s.google || "",
+      }));
+    } catch { /* storage may be unavailable */ }
+  }
+
+  function show(s, saved) {
+    $("li").value = s.linkedin || "";
+    $("fb").value = s.facebook || "";
+    $("gbp").value = s.google || s.gbp || "";
+    $("socialStatus").textContent = saved ? "Saved on this device." : "";
+    $("socialPanel").classList.remove("hidden");
+  }
+
+  // 1. The durable per-date file written when the post was generated.
+  try {
+    const s = await (await fetch(`${RAW_BASE}/drafts/${date}.social.json?t=${Date.now()}`)).json();
+    if (s && (s.linkedin || s.facebook || s.google)) {
+      save(s);
+      show(s, false);
+      return;
+    }
+  } catch { /* no per-date file */ }
+
+  // 2. The single latest file, if it is still about this post.
+  if (postTitle) {
+    try {
+      const s = await (await fetch(`${RAW_BASE}/docs/data/social-latest.json?t=${Date.now()}`)).json();
+      if (s && s.title === postTitle) {
+        save(s);
+        show(s, false);
+        return;
+      }
+    } catch { /* latest file not reachable */ }
+  }
+
+  // 3. A copy saved in this browser earlier.
+  try {
+    const saved = JSON.parse(localStorage.getItem(key) || "null");
+    if (saved && (saved.linkedin || saved.facebook || saved.google)) {
+      show(saved, true);
+      return;
+    }
+  } catch { /* storage unavailable */ }
+
+  // 4. Nothing for this post yet.
+  $("socialStatus").textContent =
+    "Social drafts for this post are not ready yet. They are written when the post is generated. If you just generated it, reload in a minute.";
+  $("socialPanel").classList.remove("hidden");
 }
 
 async function loadDraft(date) {
   $("summaryLine").textContent = `Loading for ${date}…`;
   $("draftCard").classList.add("hidden");
   selectedImageBase64 = null;
+  publishedPostId = null;
   $("preview").classList.add("hidden");
   $("publishStatus").textContent = "";
-  editing = false;
-  originalTitle = "";
 
   // Reset UI state for every load
   $("publishedBadge").classList.add("hidden");
-  $("publishedBadge").textContent = "";
+  $("publishedBadge").innerHTML = "";
   $("editBtn").classList.add("hidden");
+  $("publishBtn").classList.remove("hidden");
   $("publishBtn").disabled = true;
   $("publishBtn").textContent = "Publish";
+  if ($("imageAlt")) $("imageAlt").value = "";
   setFieldsReadOnly(false);
-  $("socialPanel").classList.add("hidden");
-  $("socialStatus").textContent = "";
-  $("li").value = "";
-  $("fb").value = "";
-  $("gbp").value = "";
 
-  // Check whether this date already has a published post
-  let publishedPost = null;
+  // Load the generated draft for this date.
+  let post = null, prompt = "", summary = "";
   try {
-    const posts = await (await fetch(`${RAW_BASE}/posts.json?t=${Date.now()}`)).json();
-    publishedPost = posts.find((p) => p.date === date) || null;
-  } catch {}
-
-  if (publishedPost) {
-    // EDIT MODE — populate from the live post
-    editing = true;
-    originalTitle = publishedPost.title;
-
-    $("title").value = publishedPost.title || "";
-    $("category").value = publishedPost.category || "";
-    $("excerpt").value = publishedPost.excerpt || "";
-    $("content").value = publishedPost.content || "";
-    $("prompt").value = "";
-
-    $("draftCard").dataset.faqs = JSON.stringify(publishedPost.faqs || []);
-    $("draftCard").dataset.date = publishedPost.date || date;
-
-    let badge = "Published " + brisbaneTime(publishedPost.publishedAt || publishedPost.date);
-    if (publishedPost.updatedAt) badge += "  ·  edited " + brisbaneTime(publishedPost.updatedAt);
-    $("publishedBadge").textContent = badge;
-    $("publishedBadge").classList.remove("hidden");
-
-    setFieldsReadOnly(true);
-    $("editBtn").classList.remove("hidden");
-    // publishBtn stays disabled until Edit is clicked
-
+    post = await (await fetchRaw(`drafts/${date}.json`)).json();
+    try { prompt = await (await fetchRaw(`drafts/${date}.prompt.txt`)).text(); } catch {}
+    try { summary = await (await fetchRaw(`drafts/${date}.summary.txt`)).text(); } catch {}
+  } catch {
     $("summaryLine").textContent =
-      `Published: ${publishedPost.title} (Category: ${publishedPost.category})`;
-    $("draftCard").classList.remove("hidden");
+      `No draft found for ${date}. The 3am job may not have run yet, ` +
+      `or you can generate from the buttons above.`;
+    return;
+  }
 
-    // If social drafts already exist for this post, surface them immediately.
-    try {
-      const sr = await fetch(`${RAW_BASE}/docs/data/social-latest.json?t=${Date.now()}`);
-      if (sr.ok) {
-        const s = await sr.json();
-        if (s.title === publishedPost.title) {
-          $("li").value = s.linkedin || "";
-          $("fb").value = s.facebook || "";
-          $("gbp").value = s.google || "";
-          $("socialPanel").classList.remove("hidden");
-        }
-      }
-    } catch {}
+  // Fill the fields from the draft.
+  $("title").value = post.title || "";
+  $("category").value = post.category || "";
+  $("excerpt").value = post.excerpt || "";
+  $("content").value = post.content || "";
+  $("prompt").value = prompt.trim();
+  $("draftCard").dataset.faqs = JSON.stringify(post.faqs || []);
+  $("draftCard").dataset.date = post.date || date;
+  $("draftCard").classList.remove("hidden");
+
+  await loadSocial(date, post.title);
+
+  // Is this post already live in WordPress?
+  const live = await findPublished(slugify(post.title));
+  if (live) {
+    // PUBLISHED — show as read only, point edits to WordPress, no re-publish.
+    publishedPostId = live.id;
+    setFieldsReadOnly(true);
+    $("publishBtn").classList.add("hidden");
+    $("publishedBadge").innerHTML =
+      `Published. <a href="${live.link}" target="_blank" rel="noopener">View live post</a>`;
+    $("publishedBadge").classList.remove("hidden");
+    $("editBtn").textContent = "Edit in WordPress";
+    $("editBtn").classList.remove("hidden");
+    $("summaryLine").textContent =
+      `Published: ${post.title} (Category: ${post.category})`;
   } else {
-    // DRAFT MODE — existing behaviour
-    try {
-      const post = await (await fetchRaw(`drafts/${date}.json`)).json();
-
-      let prompt = "", summary = "";
-      try { prompt = await (await fetchRaw(`drafts/${date}.prompt.txt`)).text(); } catch {}
-      try { summary = await (await fetchRaw(`drafts/${date}.summary.txt`)).text(); } catch {}
-
-      $("summaryLine").textContent =
-        summary.trim() || `Today's draft: ${post.title} (Category: ${post.category})`;
-
-      $("title").value = post.title || "";
-      $("category").value = post.category || "";
-      $("excerpt").value = post.excerpt || "";
-      $("content").value = post.content || "";
-      $("prompt").value = prompt.trim();
-
-      $("draftCard").dataset.faqs = JSON.stringify(post.faqs || []);
-      $("draftCard").dataset.date = post.date || date;
-
-      $("draftCard").classList.remove("hidden");
-    } catch {
-      $("summaryLine").textContent =
-        `No draft found for ${date}. The 3am job may not have run yet, ` +
-        `or you can run it manually from the repo's Actions tab.`;
-    }
+    // NOT YET PUBLISHED — draft mode. Publish unlocks once a hero image is added.
+    $("summaryLine").textContent =
+      summary.trim() || `Today's draft: ${post.title} (Category: ${post.category})`;
   }
 }
 
@@ -202,12 +260,15 @@ document.querySelectorAll(".copy-social").forEach((btn) => {
   };
 });
 
-// Edit button — unlocks fields and enables Save
+// Edit button — for an already-published post, opens it in the WordPress editor.
 $("editBtn").onclick = () => {
-  setFieldsReadOnly(false);
-  $("editBtn").classList.add("hidden");
-  $("publishBtn").textContent = "Save changes";
-  $("publishBtn").disabled = false;
+  if (publishedPostId) {
+    window.open(
+      `${WP_BASE}/wp-admin/post.php?post=${publishedPostId}&action=edit`,
+      "_blank",
+      "noopener"
+    );
+  }
 };
 
 // Image drop zone
@@ -230,54 +291,14 @@ function handleImage(file) {
     selectedImageBase64 = dataUrl.split(",")[1]; // strip "data:image/...;base64,"
     $("preview").src = dataUrl;
     $("preview").classList.remove("hidden");
-    $("publishBtn").disabled = false;
+    if (!publishedPostId) $("publishBtn").disabled = false;
   };
   reader.readAsDataURL(file);
 }
 
-// Reveal the social panel and poll until drafts for publishedTitle appear.
-function revealAndPollSocial(publishedTitle) {
-  $("socialPanel").classList.remove("hidden");
-  $("socialPanel").scrollIntoView({ behavior: "smooth", block: "start" });
-  $("socialStatus").textContent = "Drafting your social posts, this takes a minute or two...";
-  let attempts = 0;
-  const pollTimer = setInterval(async () => {
-    attempts++;
-    try {
-      const sr = await fetch(`${RAW_BASE}/docs/data/social-latest.json?t=${Date.now()}`);
-      if (sr.ok) {
-        const s = await sr.json();
-        if (s.title === publishedTitle) {
-          clearInterval(pollTimer);
-          $("socialStatus").textContent = "";
-          $("li").value = s.linkedin || "";
-          $("fb").value = s.facebook || "";
-          $("gbp").value = s.google || "";
-          return;
-        }
-      }
-      // 404 or title mismatch: continue polling
-    } catch {}
-    if (attempts >= 12) {
-      clearInterval(pollTimer);
-      $("socialStatus").textContent =
-        "Your social posts are still being prepared. Reload the page in a minute to see them.";
-    }
-  }, 15000);
-}
-
-// Publish / Save changes
-$("publishBtn").onclick = async () => {
-  if (!editing && !selectedImageBase64) return; // image required for new posts only
-  if (WORKER_URL.includes("PASTE_YOUR")) {
-    $("publishStatus").textContent = "Set WORKER_URL in app.js first.";
-    return;
-  }
-  const btn = $("publishBtn");
-  btn.disabled = true;
-  $("publishStatus").textContent = editing ? "Saving…" : "Publishing…";
-
-  const post = {
+// Build the post object from the editable fields.
+function collectPost() {
+  return {
     date: $("draftCard").dataset.date,
     category: $("category").value.trim(),
     title: $("title").value.trim(),
@@ -285,21 +306,42 @@ $("publishBtn").onclick = async () => {
     content: $("content").value,
     faqs: JSON.parse($("draftCard").dataset.faqs || "[]"),
   };
+}
 
-  const payload = editing
-    ? { post, originalTitle, ...(selectedImageBase64 ? { imageBase64: selectedImageBase64 } : {}) }
-    : { post, imageBase64: selectedImageBase64 };
+function imageAltValue() {
+  return ($("imageAlt") && $("imageAlt").value.trim()) || "";
+}
+
+// Publish
+$("publishBtn").onclick = async () => {
+  if (!selectedImageBase64) {
+    $("publishStatus").textContent = "Add a hero image first.";
+    return;
+  }
+  const btn = $("publishBtn");
+  btn.disabled = true;
+  $("publishStatus").textContent = "Publishing…";
+
+  const payload = {
+    post: collectPost(),
+    imageBase64: selectedImageBase64,
+    imageAlt: imageAltValue(),
+  };
 
   try {
-    const res = await fetch(WORKER_URL, {
+    const res = await fetch(PUBLISH_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
     const data = await res.json();
     if (data.ok) {
-      $("publishStatus").textContent = data.message;
-      revealAndPollSocial(post.title);
+      $("publishStatus").innerHTML =
+        `${data.message}. <a href="${data.url}" target="_blank" rel="noopener">View live post</a>. ` +
+        `Your social drafts are below. Paste the live link into the first LinkedIn comment.`;
+      // Flip to published state without needing a reload.
+      setFieldsReadOnly(true);
+      $("publishBtn").classList.add("hidden");
     } else {
       $("publishStatus").textContent = `Failed: ${data.error}`;
       btn.disabled = false;
@@ -321,29 +363,22 @@ $("scheduleBtn").onclick = async () => {
     $("publishStatus").textContent = "Pick a date and time first.";
     return;
   }
-  if (WORKER_URL.includes("PASTE_YOUR")) {
-    $("publishStatus").textContent = "Set WORKER_URL in app.js first.";
-    return;
-  }
   const scheduledFor = new Date(scheduleAtValue).toISOString();
-  const post = {
-    date: $("draftCard").dataset.date,
-    category: $("category").value.trim(),
-    title: $("title").value.trim(),
-    excerpt: $("excerpt").value.trim(),
-    content: $("content").value,
-    faqs: JSON.parse($("draftCard").dataset.faqs || "[]"),
-  };
   $("publishStatus").textContent = "Scheduling…";
   try {
-    const res = await fetch(WORKER_URL, {
+    const res = await fetch(PUBLISH_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ action: "schedule", post, scheduledFor, imageBase64: selectedImageBase64 }),
+      body: JSON.stringify({
+        action: "schedule",
+        post: collectPost(),
+        scheduledFor,
+        imageBase64: selectedImageBase64,
+        imageAlt: imageAltValue(),
+      }),
     });
     const data = await res.json();
     $("publishStatus").textContent = data.ok ? data.message : `Failed: ${data.error}`;
-    if (data.ok) revealAndPollSocial(post.title);
   } catch (e) {
     $("publishStatus").textContent = `Failed: ${e.message}`;
   }

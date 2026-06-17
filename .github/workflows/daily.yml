@@ -35,6 +35,11 @@ jobs:
         with:
           node-version: 20
 
+      # 2a. Refresh posts.json from the live WordPress site so the generator
+      #     reasons about what is actually published, not a frozen snapshot.
+      - name: Sync posts.json from WordPress
+        run: node scripts/sync-posts.mjs
+
       # 3. Generate today's content pack with Claude Code, signed in with your
       #    Claude subscription via the OAuth token stored as a repo secret.
       #    --dangerously-skip-permissions lets it write files without an
@@ -63,6 +68,6 @@ jobs:
           git config user.name "ProfitPulse Bot"
           git config user.email "bot@users.noreply.github.com"
           DATE=$(TZ=Australia/Brisbane date +%F)
-          git add drafts docs/data/analytics.json
+          git add drafts docs/data/analytics.json posts.json
           git commit -m "Draft: ${DATE}" || echo "Nothing new to commit"
           git push
