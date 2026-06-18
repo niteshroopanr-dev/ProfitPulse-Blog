@@ -4,21 +4,21 @@ For reference only, the attached logo consists of three rising bar chart columns
 
 A flat editorial illustration in a refined hand-drawn style for a Brisbane-based financial advisory firm called ProfitPulse.
 
-TITLE TEXT (must appear in the image): "What Buyers Find in Due Diligence When Sellers Haven't Prepared"
+TITLE TEXT (must appear in the image): "The Capital Picture Hiding in Your EOFY Balance Sheet"
 Render the title in elegant serif typography, similar to Fraunces or Playfair Display, positioned in the upper portion or upper-left of the composition. The title must be clearly legible against the background. Use cream or off-white colour for the title if the background is dark, or deep navy / charcoal if the background is light.
 
-CONCEPT TO ILLUSTRATE: A business owner sits across a table from a buyer's due diligence team, with disorganised loose documents on the seller's side and a neatly bound, clearly labelled information pack on the buyer's side. The image captures the information asymmetry that defines an unprepared sale process, with the buyer in a position of quiet advantage.
+CONCEPT TO ILLUSTRATE: A thoughtful business owner seated at a desk, studying a large open document resembling a balance sheet or financial statement. On one side of the desk, a small stack of folders and a coffee cup; on the other, a simple diagram showing an upward arc suggesting capital capacity and available headroom. The mood is calm, deliberate, and strategic — someone reading not for compliance but for insight into what their business can do next.
 
 VISUAL STYLE: Sophisticated editorial illustration with a hand-drawn quality and subtle paper texture. Choose one of these tonal directions based on the post's mood:
 - Warm and reflective (use this for posts about peace of mind, habits, perspective, slower thinking): cream/off-white background (#f5f0e6) with soft navy figures and champagne gold accents (#c9a96e)
 - Strategic and confident (use this for posts about valuation, profit, decisive action, capital): muted sage green or dusty teal background (#7a9080 to #5a8a8a range) with cream highlights and gold details
 - Cautionary or serious (use this for posts about risk, pitfalls, common mistakes): deep navy background (#1a2940 to #2a3548) with cream figures and gold accents
 
-Use the cautionary or serious direction for this image: deep navy background (#1a2940 to #2a3548) with cream figures and gold accents.
+This post is about capital strategy and forward planning, so use the Strategic and confident tonal direction: muted sage green or dusty teal background with cream highlights and gold details.
 
 Always maintain: soft hand-drawn linework, subtle paper or canvas grain, balanced asymmetric composition, calm and confident editorial mood. The aesthetic should match what you'd see in a sophisticated financial publication aimed at experienced business owners.
 
-COMPOSITION: Single focal scene with a negotiation table as the central element, two human figures in subtle business attire on either side, and a visible contrast between organised and disorganised documentation. Generous negative space around the title to ensure legibility. The figures should feel composed and thoughtful, not adversarial.
+COMPOSITION: Single focal scene with one human figure in subtle business attire seated at a desk, studying financial documents with a calm, focused expression. Generous negative space around the title to ensure legibility. The character should feel reflective and analytical, not overtly cheerful or stock-photo-like.
 
 FORMAT: 16:10 aspect ratio (landscape), high resolution, suitable for use at 1200 pixels wide as a blog hero image.
 

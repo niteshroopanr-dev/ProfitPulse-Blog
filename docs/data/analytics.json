@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-06-17T17:26:19.402Z",
-  "totalPosts": 39,
+  "generatedAt": "2026-06-18T17:27:39.757Z",
+  "totalPosts": 40,
   "categories": [
     {
       "name": "Cash Flow",
       "count": 5,
       "lastDate": "2026-06-16",
-      "daysSinceLast": 2
+      "daysSinceLast": 3
     },
     {
       "name": "Profitability",
       "count": 8,
       "lastDate": "2026-06-17",
-      "daysSinceLast": 1
+      "daysSinceLast": 2
     },
     {
       "name": "Valuation and Exit",
@@ -30,19 +30,19 @@
       "name": "Fractional CFO",
       "count": 7,
       "lastDate": "2026-02-13",
-      "daysSinceLast": 125
+      "daysSinceLast": 126
     },
     {
       "name": "Industry Focus",
       "count": 11,
       "lastDate": "2026-06-14",
-      "daysSinceLast": 4
+      "daysSinceLast": 5
     }
   ],
   "repeatedTerms": [
     {
       "term": "revenue",
-      "count": 271
+      "count": 272
     },
     {
       "term": "year",
@@ -62,66 +62,70 @@
     },
     {
       "term": "before",
-      "count": 172
+      "count": 181
     },
     {
       "term": "june",
-      "count": 167
+      "count": 168
     },
     {
       "term": "work",
-      "count": 156
+      "count": 164
     },
     {
       "term": "where",
-      "count": 141
+      "count": 145
     },
     {
       "term": "cost",
       "count": 137
     },
     {
+      "term": "time",
+      "count": 126
+    },
+    {
       "term": "july",
       "count": 125
     },
     {
-      "term": "time",
+      "term": "decisions",
       "count": 123
     },
     {
-      "term": "decisions",
-      "count": 119
-    },
-    {
       "term": "across",
-      "count": 109
+      "count": 113
     },
     {
       "term": "capital",
       "count": 106
     },
     {
+      "term": "rather",
+      "count": 103
+    },
+    {
       "term": "practice",
       "count": 103
     },
     {
-      "term": "rather",
+      "term": "without",
       "count": 98
     },
     {
       "term": "months",
-      "count": 97
+      "count": 98
     },
     {
       "term": "through",
-      "count": 95
-    },
-    {
-      "term": "without",
-      "count": 93
+      "count": 96
     },
     {
       "term": "pricing",
+      "count": 93
+    },
+    {
+      "term": "eofy",
       "count": 91
     },
     {
@@ -129,16 +133,12 @@
       "count": 91
     },
     {
-      "term": "eofy",
-      "count": 90
-    },
-    {
       "term": "review",
       "count": 90
     },
     {
-      "term": "same",
-      "count": 85
+      "term": "often",
+      "count": 88
     }
   ],
   "industries": {
@@ -161,7 +161,7 @@
       },
       {
         "name": "Building and specialist trades",
-        "count": 5
+        "count": 6
       },
       {
         "name": "Aged care and disability  providers",
@@ -217,7 +217,7 @@
     "referenced": [
       {
         "name": "Exit Readiness Diagnostic",
-        "count": 11
+        "count": 14
       },
       {
         "name": "Working Capital Unlock",
@@ -225,7 +225,7 @@
       },
       {
         "name": "Value Uplift Roadmap",
-        "count": 4
+        "count": 5
       },
       {
         "name": "Indicative Business Valuation",
@@ -287,16 +287,16 @@
       "count": 18
     },
     {
+      "url": "https://profit-pulse.com.au/valuation-brisbane-smes",
+      "count": 16
+    },
+    {
       "url": "https://profit-pulse.com.au/fractional-cfo-brisbane",
       "count": 15
     },
     {
-      "url": "https://profit-pulse.com.au/valuation-brisbane-smes",
-      "count": 15
-    },
-    {
       "url": "https://profit-pulse.com.au/exit-readiness-brisbane",
-      "count": 12
+      "count": 13
     },
     {
       "url": "https://profit-pulse.com.au/what-is-a-fractional-cfo%3F-1",
@@ -312,19 +312,19 @@
     },
     {
       "url": "https://profit-pulse.com.au/business-valuations-101",
-      "count": 6
+      "count": 7
     },
     {
       "url": "https://profit-pulse.com.au/capital-raise-brisbane",
       "count": 4
     },
     {
-      "url": "https://profit-pulse.com.au/fractional-cfo-costs",
+      "url": "https://profit-pulse.com.au/exit-readiness-101",
       "count": 3
     },
     {
-      "url": "https://profit-pulse.com.au/exit-readiness-101",
-      "count": 2
+      "url": "https://profit-pulse.com.au/fractional-cfo-costs",
+      "count": 3
     }
   ],
   "postsPerWeek": [
@@ -394,7 +394,7 @@
     },
     {
       "week": "2026-W25",
-      "count": 3
+      "count": 4
     }
   ]
 }
