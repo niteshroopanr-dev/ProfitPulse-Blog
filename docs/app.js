@@ -20,7 +20,7 @@ const RAW_BASE =
   "https://raw.githubusercontent.com/niteshroopanr-dev/ProfitPulse-Blog/main";
 // ==================================================
 
-let selectedImageBase64 = null; // set when an image is dropped/chosen
+let selectedImageFile = null;   // the chosen hero File, sent to the worker as raw binary
 let publishedPostId = null;     // WordPress post id, if this date is already live
 
 // --- small helpers -----------------------------------------------------------
@@ -181,7 +181,7 @@ async function loadSocial(date, postTitle) {
 async function loadDraft(date) {
   $("summaryLine").textContent = `Loading for ${date}…`;
   $("draftCard").classList.add("hidden");
-  selectedImageBase64 = null;
+  selectedImageFile = null;
   publishedPostId = null;
   $("preview").classList.add("hidden");
   $("publishStatus").textContent = "";
@@ -285,11 +285,10 @@ dz.addEventListener("drop", (e) => {
 
 function handleImage(file) {
   if (!file) return;
+  selectedImageFile = file; // kept as-is and sent to the worker as raw binary (no base64)
   const reader = new FileReader();
   reader.onload = () => {
-    const dataUrl = reader.result;
-    selectedImageBase64 = dataUrl.split(",")[1]; // strip "data:image/...;base64,"
-    $("preview").src = dataUrl;
+    $("preview").src = reader.result; // data URL used only for the on-page preview
     $("preview").classList.remove("hidden");
     if (!publishedPostId) $("publishBtn").disabled = false;
   };
@@ -314,7 +313,7 @@ function imageAltValue() {
 
 // Publish
 $("publishBtn").onclick = async () => {
-  if (!selectedImageBase64) {
+  if (!selectedImageFile) {
     $("publishStatus").textContent = "Add a hero image first.";
     return;
   }
@@ -322,18 +321,16 @@ $("publishBtn").onclick = async () => {
   btn.disabled = true;
   $("publishStatus").textContent = "Publishing…";
 
-  const payload = {
-    post: collectPost(),
-    imageBase64: selectedImageBase64,
-    imageAlt: imageAltValue(),
-  };
+  // Send the post fields as JSON and the hero image as raw binary in one
+  // multipart request. The browser never base64-encodes and the worker never
+  // base64-decodes, so the worker stays under Cloudflare's CPU limit.
+  const fd = new FormData();
+  fd.append("payload", JSON.stringify({ post: collectPost(), imageAlt: imageAltValue() }));
+  fd.append("image", selectedImageFile, selectedImageFile.name || "hero.png");
 
   try {
-    const res = await fetch(PUBLISH_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
+    // No Content-Type header: the browser sets multipart/form-data with its boundary.
+    const res = await fetch(PUBLISH_URL, { method: "POST", body: fd });
     const data = await res.json();
     if (data.ok) {
       $("publishStatus").innerHTML =
@@ -354,7 +351,7 @@ $("publishBtn").onclick = async () => {
 
 // Schedule
 $("scheduleBtn").onclick = async () => {
-  if (!selectedImageBase64) {
+  if (!selectedImageFile) {
     $("publishStatus").textContent = "Scheduling needs a hero image.";
     return;
   }
@@ -365,18 +362,12 @@ $("scheduleBtn").onclick = async () => {
   }
   const scheduledFor = new Date(scheduleAtValue).toISOString();
   $("publishStatus").textContent = "Scheduling…";
+  // Same multipart approach as Publish: post fields as JSON, image as raw binary.
+  const fd = new FormData();
+  fd.append("payload", JSON.stringify({ action: "schedule", post: collectPost(), scheduledFor, imageAlt: imageAltValue() }));
+  fd.append("image", selectedImageFile, selectedImageFile.name || "hero.png");
   try {
-    const res = await fetch(PUBLISH_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        action: "schedule",
-        post: collectPost(),
-        scheduledFor,
-        imageBase64: selectedImageBase64,
-        imageAlt: imageAltValue(),
-      }),
-    });
+    const res = await fetch(PUBLISH_URL, { method: "POST", body: fd });
     const data = await res.json();
     $("publishStatus").textContent = data.ok ? data.message : `Failed: ${data.error}`;
   } catch (e) {
