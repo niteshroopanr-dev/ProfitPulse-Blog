@@ -4,21 +4,21 @@ For reference only, the attached logo consists of three rising bar chart columns
 
 A flat editorial illustration in a refined hand-drawn style for a Brisbane-based financial advisory firm called ProfitPulse.
 
-TITLE TEXT (must appear in the image): "What the July Award Increase Does to a Recruitment Business That Hasn't Repriced"
+TITLE TEXT (must appear in the image): "The Payor Mix Question Every Allied Health Practice Faces at EOFY"
 Render the title in elegant serif typography, similar to Fraunces or Playfair Display, positioned in the upper portion or upper-left of the composition. The title must be clearly legible against the background. Use cream or off-white colour for the title if the background is dark, or deep navy / charcoal if the background is light.
 
-CONCEPT TO ILLUSTRATE: A recruitment business owner at a desk reviews a stack of client rate agreements and an on-cost calculation sheet, with a wall calendar showing the date turning to 1 July in the background. The mood is one of quiet urgency — work that needs to happen before a fixed deadline arrives.
+CONCEPT TO ILLUSTRATE: A clinician or practice owner, shown from behind or in profile, sits at a clean desk reviewing a billing breakdown report. The report shows columns of different payor categories — private health insurance, Medicare, NDIS — with contribution figures beside each. Through a window in the background, a calendar page shows June 30 approaching. The mood is reflective and considered: a professional taking stock of a year's work and seeing the revenue picture more clearly than ever before.
 
 VISUAL STYLE: Sophisticated editorial illustration with a hand-drawn quality and subtle paper texture. Choose one of these tonal directions based on the post's mood:
 - Warm and reflective (use this for posts about peace of mind, habits, perspective, slower thinking): cream/off-white background (#f5f0e6) with soft navy figures and champagne gold accents (#c9a96e)
 - Strategic and confident (use this for posts about valuation, profit, decisive action, capital): muted sage green or dusty teal background (#7a9080 to #5a8a8a range) with cream highlights and gold details
 - Cautionary or serious (use this for posts about risk, pitfalls, common mistakes): deep navy background (#1a2940 to #2a3548) with cream figures and gold accents
 
-Use the cautionary tonal direction: deep navy background (#1a2940 to #2a3548) with cream figures and gold accents. The subject matter is a risk that arrives on a fixed date and erodes margin for businesses that have not acted.
+Use the warm and reflective tonal direction: cream/off-white background (#f5f0e6) with soft navy figures and champagne gold accents (#c9a96e). The post is about a moment of clarity — the practice owner seeing their year's billing economics clearly for the first time, before the new year begins.
 
 Always maintain: soft hand-drawn linework, subtle paper or canvas grain, balanced asymmetric composition, calm and confident editorial mood. The aesthetic should match what you'd see in a sophisticated financial publication aimed at experienced business owners.
 
-COMPOSITION: Single focal scene with one human figure in subtle business attire seated at a desk, surrounded by contract documents and a cost calculation sheet. A calendar in the background shows the date turning to 1 July. Generous negative space around the title to ensure legibility. The character should feel focused and purposeful, not panicked.
+COMPOSITION: Single focal scene with one human figure in subtle professional attire seated at a desk, a billing breakdown document in front of them showing different funding stream columns. A calendar or window in the background suggests late June. Generous negative space in the upper portion of the image for the title. The character should feel thoughtful and measured, not rushed or anxious.
 
 FORMAT: 16:10 aspect ratio (landscape), high resolution, suitable for use at 1200 pixels wide as a blog hero image.
 
