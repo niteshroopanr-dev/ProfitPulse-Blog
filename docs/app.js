@@ -80,22 +80,84 @@ function switchTab(which) {
 }
 
 // --- Generate buttons --------------------------------------------------------
+//
+// A click asks the generation worker to dispatch the batch workflow, which
+// writes drafts for the next N days STARTING TOMORROW (today already has its
+// draft). That runs on GitHub and takes a few minutes, so nothing appears
+// instantly. We therefore (1) say plainly what is happening and where to look,
+// (2) show the worker's real reply so a genuine failure looks different from a
+// success, and (3) move the date picker to tomorrow — the first date a click
+// can actually affect — so you are not left staring at today.
+
+// Brisbane calendar date N days from today (handles month/year rollover).
+function brisbanePlusDays(n) {
+  const [y, m, d] = brisbaneToday().split("-").map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  dt.setUTCDate(dt.getUTCDate() + n);
+  return dt.toISOString().slice(0, 10); // YYYY-MM-DD
+}
+
+// Write the generate status line. The inline colour (no stylesheet change)
+// makes a real failure unmistakable: green = done, red = failed, default = working.
+function setGenStatus(text, kind) {
+  const el = $("genStatus");
+  el.textContent = text;
+  el.style.color = kind === "ok" ? "#1a7f37" : kind === "error" ? "#b42318" : "";
+}
 
 document.querySelectorAll("[data-days]").forEach((btn) => {
   btn.onclick = async () => {
-    const days = btn.dataset.days;
-    $("genStatus").textContent = `Generating ${days} days of drafts. They will appear in a couple of minutes.`;
+    const days = Number(btn.dataset.days);
+    const firstDate = brisbanePlusDays(1); // tomorrow — the first date generated
+
+    setGenStatus(
+      `Generating drafts for the next ${days} day${days === 1 ? "" : "s"}, ` +
+      `starting tomorrow (${firstDate}). This runs on GitHub and takes a few minutes. ` +
+      `When it finishes, reload this page and pick those dates to read them.`,
+      "working"
+    );
+
+    let res;
     try {
-      const res = await fetch(GEN_URL, {
+      res = await fetch(GEN_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ action: "generate", days: Number(days) }),
+        body: JSON.stringify({ action: "generate", days }),
       });
-      const data = await res.json();
-      $("genStatus").textContent = data.ok ? data.message : `Error: ${data.error}`;
     } catch (e) {
-      $("genStatus").textContent = `Error: ${e.message}`;
+      // The request never reached the worker: offline, or blocked because the
+      // page was opened as a local file (file://) rather than the hosted URL.
+      setGenStatus(
+        `Could not reach the generator: ${e.message}. If you opened this page as a ` +
+        `local file, use the hosted address instead: ` +
+        `https://niteshroopanr-dev.github.io/ProfitPulse-Blog/`,
+        "error"
+      );
+      return;
     }
+
+    // Read the body as text first, so a non-JSON error page (e.g. a Cloudflare
+    // error) is shown verbatim instead of throwing on JSON.parse.
+    const raw = await res.text();
+    let data = null;
+    try { data = JSON.parse(raw); } catch { /* response was not JSON */ }
+
+    if (res.ok && data && data.ok) {
+      setGenStatus(
+        `${data.message || "Generation started."} Now showing ${firstDate}, the first ` +
+        `of the new dates — reload it in a few minutes to read the draft.`,
+        "ok"
+      );
+      // Land on the first date this click affects, instead of today.
+      $("datePicker").value = firstDate;
+      loadDraft(firstDate);
+      return;
+    }
+
+    // Anything else is a real failure: show the worker's own words and the HTTP
+    // status so an error or token/permission problem is obvious.
+    const detail = (data && (data.error || data.message)) || raw || "no response body";
+    setGenStatus(`Generation failed (HTTP ${res.status}): ${detail}`, "error");
   };
 });
 
