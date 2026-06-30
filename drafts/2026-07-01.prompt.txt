@@ -4,21 +4,16 @@ For reference only, the attached logo consists of three rising bar chart columns
 
 A flat editorial illustration in a refined hand-drawn style for a Brisbane-based financial advisory firm called ProfitPulse.
 
-TITLE TEXT (must appear in the image): "The Income Mix Most Indigenous-Owned Enterprises Have Never Mapped"
+TITLE TEXT (must appear in the image): "Why July's P&L Is the Most Important One You'll Pull All Year"
 Render the title in elegant serif typography, similar to Fraunces or Playfair Display, positioned in the upper portion or upper-left of the composition. The title must be clearly legible against the background. Use cream or off-white colour for the title if the background is dark, or deep navy / charcoal if the background is light.
 
-CONCEPT TO ILLUSTRATE: A purposeful business leader at a desk reviewing two distinct sets of financial documents side by side — one representing grant-funded program income and one representing commercial revenue — with a calm expression of clarity and forward focus. The visual should convey the idea of separating and understanding two distinct financial streams, arriving at a clearer picture of the business's true commercial foundation.
+CONCEPT TO ILLUSTRATE: A business owner seated at a clean, uncluttered desk in quiet morning light, studying a simple financial chart or monthly P&L printout with calm, deliberate focus. The posture is thoughtful and purposeful, conveying the feeling of someone who has chosen to look at important numbers early rather than defer them, marking the intentional start of a new financial year.
 
-VISUAL STYLE: Sophisticated editorial illustration with a hand-drawn quality and subtle paper texture. Choose one of these tonal directions based on the post's mood:
-- Warm and reflective (use this for posts about peace of mind, habits, perspective, slower thinking): cream/off-white background (#f5f0e6) with soft navy figures and champagne gold accents (#c9a96e)
-- Strategic and confident (use this for posts about valuation, profit, decisive action, capital): muted sage green or dusty teal background (#7a9080 to #5a8a8a range) with cream highlights and gold details
-- Cautionary or serious (use this for posts about risk, pitfalls, common mistakes): deep navy background (#1a2940 to #2a3548) with cream figures and gold accents
-
-Use the strategic and confident tonal direction for this image: muted sage green or dusty teal background with cream highlights and gold details.
+VISUAL STYLE: Sophisticated editorial illustration with a hand-drawn quality and subtle paper texture. Use the warm and reflective tonal direction for this image: cream/off-white background (#f5f0e6) with soft navy figures and champagne gold accents (#c9a96e). This suits the habit-building, reflective quality of the post. The quiet discipline of reviewing the first month's numbers while the year is still young.
 
 Always maintain: soft hand-drawn linework, subtle paper or canvas grain, balanced asymmetric composition, calm and confident editorial mood. The aesthetic should match what you'd see in a sophisticated financial publication aimed at experienced business owners.
 
-COMPOSITION: Single focal scene with one human figure in subtle business attire seated at a desk, reviewing two sets of documents or charts that suggest distinct income streams. Generous negative space around the title to ensure legibility. The character should feel focused and thoughtful, not overtly cheerful or stock-photo-like.
+COMPOSITION: Single focal scene with one human figure in subtle business attire, seated at a desk and reviewing a simple financial document or printed chart. The scene should feel early-morning and purposeful, with generous negative space in the upper area for the title. The figure should appear composed and focused, not stressed or rushed.
 
 FORMAT: 16:10 aspect ratio (landscape), high resolution, suitable for use at 1200 pixels wide as a blog hero image.
 
