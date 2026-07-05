@@ -1,0 +1,25 @@
+IMPORTANT, READ FIRST: I have attached the official ProfitPulse logo as a file in this message. Use that exact attached image file as the logo in the picture you generate. Do not draw, redraw, recreate, restyle, or invent a logo of your own, and do not generate any image that contains a made-up ProfitPulse logo. Take the attached file as-is and composite it into the lower-right corner of the final image at approximately 10 to 12 percent of the image width, with comfortable padding from the bottom and right edges, keeping its exact colours, shapes, proportions and the two-tone "ProfitPulse" wordmark completely unchanged. If you cannot place the attached logo, stop and tell me rather than substituting your own version.
+
+For reference only, the attached logo consists of three rising bar chart columns graduating from teal/turquoise on the left to gold/amber on the right, overlaid with a gold zigzag pulse line that ends in an upward-pointing arrow at the top right, with the wordmark "ProfitPulse" below where "Profit" is white and "Pulse" is bold gold/amber, on a black background. This description is only so you can recognise the file; you must still use the attached file itself, not a recreation of it.
+
+A flat editorial illustration in a refined hand-drawn style for a Brisbane-based financial advisory firm called ProfitPulse.
+
+TITLE TEXT (must appear in the image): "The Two Ledgers Every Indigenous-Owned Enterprise and Social Enterprise Runs, and Why Only One Is Actually Profit"
+Render the title in elegant serif typography, similar to Fraunces or Playfair Display, positioned in the upper portion or upper-left of the composition. The title must be clearly legible against the background. Use cream or off-white colour for the title if the background is dark, or deep navy / charcoal if the background is light.
+
+CONCEPT TO ILLUSTRATE: A thoughtful figure at a plain wooden desk studies two open ledger books placed side by side, one column washed in a warm gold tone representing genuine trading income, the other in a calmer sage tone representing grant and program funding, both flowing down into a single combined line beneath them, symbolising how a mission-driven organisation must learn to read its true commercial margin separately from the funding that sits alongside it.
+
+VISUAL STYLE: Sophisticated editorial illustration with a hand-drawn quality and subtle paper texture. Choose one of these tonal directions based on the post's mood:
+- Warm and reflective (use this for posts about peace of mind, habits, perspective, slower thinking): cream/off-white background (#f5f0e6) with soft navy figures and champagne gold accents (#c9a96e)
+- Strategic and confident (use this for posts about valuation, profit, decisive action, capital): muted sage green or dusty teal background (#7a9080 to #5a8a8a range) with cream highlights and gold details
+- Cautionary or serious (use this for posts about risk, pitfalls, common mistakes): deep navy background (#1a2940 to #2a3548) with cream figures and gold accents
+
+Always maintain: soft hand-drawn linework, subtle paper or canvas grain, balanced asymmetric composition, calm and confident editorial mood. The aesthetic should match what you'd see in a sophisticated financial publication aimed at experienced business owners.
+
+COMPOSITION: Single focal scene with either one human figure in subtle business attire OR one to two symbolic objects that visually represent the concept. Generous negative space around the title to ensure legibility. The character (if used) should feel reflective or thoughtful, never overtly cheerful or stock-photo-like.
+
+FORMAT: 16:10 aspect ratio (landscape), high resolution, suitable for use at 1200 pixels wide as a blog hero image.
+
+LOGO PLACEMENT: Use the attached logo file exactly as described in the IMPORTANT note at the top of this prompt. Do not recreate or restyle it.
+
+EXCLUDE: cartoon style, photorealism, neon colours, sharp digital gradients, stock photography aesthetics, generic AI illustration tropes, 3D rendered look, multiple competing focal points, watermarks, logos other than the ProfitPulse wordmark specified above, additional text beyond the title and the logo.
