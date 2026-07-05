@@ -7,7 +7,7 @@ A flat editorial illustration in a refined hand-drawn style for a Brisbane-based
 TITLE TEXT (must appear in the image): "Profitable and Cash-Tight: The Working Capital Pattern That Growth Always Creates"
 Render the title in elegant serif typography, similar to Fraunces or Playfair Display, positioned in the upper portion or upper-left of the composition. The title must be clearly legible against the background. Use cream or off-white colour for the title if the background is dark, or deep navy / charcoal if the background is light.
 
-CONCEPT TO ILLUSTRATE: A thoughtful business owner seated at a desk studies two charts side by side: one showing a strong upward revenue line, the other showing a cash balance that dips downward through the same growth period before eventually recovering. The visual captures the timing gap between earning revenue and receiving the cash it generates — profit rising while the bank account tightens.
+CONCEPT TO ILLUSTRATE: A thoughtful business owner seated at a desk studies two charts side by side: one showing a strong upward revenue line, the other showing a cash balance that dips downward through the same growth period before eventually recovering. The visual captures the timing gap between earning revenue and receiving the cash it generates, profit rising while the bank account tightens.
 
 VISUAL STYLE: Sophisticated editorial illustration with a hand-drawn quality and subtle paper texture. Choose one of these tonal directions based on the post's mood:
 - Warm and reflective (use this for posts about peace of mind, habits, perspective, slower thinking): cream/off-white background (#f5f0e6) with soft navy figures and champagne gold accents (#c9a96e)
@@ -18,7 +18,7 @@ Use the cautionary or serious tonal direction for this post: deep navy backgroun
 
 Always maintain: soft hand-drawn linework, subtle paper or canvas grain, balanced asymmetric composition, calm and confident editorial mood. The aesthetic should match what you'd see in a sophisticated financial publication aimed at experienced business owners.
 
-COMPOSITION: Single focal scene with one human figure in subtle business attire seated at a desk, studying two diverging chart lines — one rising, one dipping — with a reflective or analytical expression. Generous negative space around the title to ensure legibility. The character should feel thoughtful and focused, not alarmed.
+COMPOSITION: Single focal scene with one human figure in subtle business attire seated at a desk, studying two diverging chart lines, one rising and one dipping, with a reflective or analytical expression. Generous negative space around the title to ensure legibility. The character should feel thoughtful and focused, not alarmed.
 
 FORMAT: 16:10 aspect ratio (landscape), high resolution, suitable for use at 1200 pixels wide as a blog hero image.
 
