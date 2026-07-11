@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-07-10T16:29:40.187Z",
+  "generatedAt": "2026-07-11T15:08:09.866Z",
   "totalPosts": 40,
   "categories": [
     {
       "name": "Cash Flow",
       "count": 5,
       "lastDate": "2026-06-16",
-      "daysSinceLast": 25
+      "daysSinceLast": 26
     },
     {
       "name": "Profitability",
       "count": 8,
       "lastDate": "2026-06-17",
-      "daysSinceLast": 24
+      "daysSinceLast": 25
     },
     {
       "name": "Valuation and Exit",
@@ -30,13 +30,13 @@
       "name": "Fractional CFO",
       "count": 7,
       "lastDate": "2026-02-13",
-      "daysSinceLast": 148
+      "daysSinceLast": 149
     },
     {
       "name": "Industry Focus",
       "count": 11,
       "lastDate": "2026-06-14",
-      "daysSinceLast": 27
+      "daysSinceLast": 28
     }
   ],
   "repeatedTerms": [
