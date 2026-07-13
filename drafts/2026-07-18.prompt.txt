@@ -1,0 +1,22 @@
+IMPORTANT, READ FIRST: I have attached the official ProfitPulse logo as a file in this message. Use that exact attached image file as the logo in the picture you generate. Do not draw, redraw, recreate, restyle, or invent a logo of your own, and do not generate any image that contains a made-up ProfitPulse logo. Take the attached file as-is and composite it into the lower-right corner of the final image at approximately 10 to 12 percent of the image width, with comfortable padding from the bottom and right edges, keeping its exact colours, shapes, proportions and the two-tone "ProfitPulse" wordmark completely unchanged. If you cannot place the attached logo, stop and tell me rather than substituting your own version.
+
+For reference only, the attached logo consists of three rising bar chart columns graduating from teal/turquoise on the left to gold/amber on the right, overlaid with a gold zigzag pulse line that ends in an upward-pointing arrow at the top right, with the wordmark "ProfitPulse" below where "Profit" is white and "Pulse" is bold gold/amber, on a black background. This description is only so you can recognise the file; you must still use the attached file itself, not a recreation of it.
+
+A flat editorial illustration in a refined hand-drawn style for a Brisbane-based financial advisory firm called ProfitPulse.
+
+TITLE TEXT (must appear in the image): "The Absorption Gap: Why Manufacturing Margins Compress When Production Volume Slows"
+Render the title in elegant serif typography, similar to Fraunces or Playfair Display, positioned in the upper portion or upper-left of the composition. The title must be clearly legible against the background. Use cream or off-white colour for the title if the background is dark, or deep navy / charcoal if the background is light.
+
+CONCEPT TO ILLUSTRATE: A single stylised factory gauge or dial, its needle resting below the midpoint, beside a stack of finished goods boxes where only some of the stack sits in full light and the rest fades softly into shadow, suggesting that the true cost of each unit rises quietly once the production line runs slower than it was costed to run.
+
+VISUAL STYLE: Sophisticated editorial illustration with a hand-drawn quality and subtle paper texture. Use the cautionary and serious tonal direction for this post, since it concerns a hidden margin risk business owners need to notice: a deep navy background (in the #1a2940 to #2a3548 range) with cream figures and gold accents.
+
+Always maintain: soft hand-drawn linework, subtle paper or canvas grain, balanced asymmetric composition, calm and confident editorial mood. The aesthetic should match what you'd see in a sophisticated financial publication aimed at experienced business owners.
+
+COMPOSITION: Single focal scene with either one human figure in subtle business attire OR one to two symbolic objects that visually represent the concept. Generous negative space around the title to ensure legibility. The character (if used) should feel reflective or thoughtful, never overtly cheerful or stock-photo-like.
+
+FORMAT: 16:10 aspect ratio (landscape), high resolution, suitable for use at 1200 pixels wide as a blog hero image.
+
+LOGO PLACEMENT: Use the attached logo file exactly as described in the IMPORTANT note at the top of this prompt. Do not recreate or restyle it.
+
+EXCLUDE: cartoon style, photorealism, neon colours, sharp digital gradients, stock photography aesthetics, generic AI illustration tropes, 3D rendered look, multiple competing focal points, watermarks, logos other than the ProfitPulse wordmark specified above, additional text beyond the title and the logo.
