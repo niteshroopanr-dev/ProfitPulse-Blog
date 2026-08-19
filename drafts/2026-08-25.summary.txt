@@ -1,0 +1,2 @@
+Today's draft: The Cash Flow Forecast That's Already Wrong by August (Category: Cash Flow)
+Cash Flow has the longest gap since its last post (2026-08-18) and Tuesday leans toward Cash Flow per the topic-selection logic, and this angle (static EOFY forecasts drifting from reality versus a rolling 13-week view) is distinct from every other Cash Flow post in posts.json and drafts/, which have already covered BAS timing, debtor days, superannuation due dates, GST held on trust, wage increases, renewals, supplier terms and bank balance versus true cash position.
